@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Servicios de Bienvenida, la mejor manera de sentirte bienvenido."
+title: "la mejor manera de sentirte bienvenido."
 excerpt: "Estas en buenas manos, somos tu compañero de confianza en la Ciudad de Guatemala"
 ---
 
