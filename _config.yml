@@ -5,20 +5,50 @@ url: "https://serviciosdebienvenida.com"
 baseurl: ""
 logo: "/assets/images/logo_servicios_de_bienvenida_web.png"
 
+remote_theme: mmistakes/minimal-mistakes
+
+minimal_mistakes_skin: default
+search: true
+
+markdown: kramdown
+
+# Author settings
 author:
-  name: Servicios de Bienvenida
+  name: "Servicios de Bienvenida"
   bio: "Apasionados por hacer que tu experiencia en el corazón de la Ciudad de Guatemala sea inolvidable."
+  avatar: "/assets/images/bio-photo.jpg"
   links:
     - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/serviciosdebienvenida"
     - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
       url: "https://www.facebook.com/serviciosdebienvenida"
     - label: "WhatsApp"
+      icon: "fab fa-fw fa-whatsapp"
       url: "https://wa.me/502"
 
-theme: minimal-mistakes-jekyll
+# Footer links (optional)
+footer:
+  links:
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/serviciosdebienvenida"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://www.facebook.com/serviciosdebienvenida"
+
+# Outputting
+permalink: /:categories/:title/
+paginate: 5
+paginate_path: /page:num/
+include:
+  - _pages
+
+# Plugins
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jemoji
   - jekyll-include-cache
