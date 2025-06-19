@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Bienvenido a Servicios de Bienvenida"
+title: "Una mejor manera de sentirte bienvenido"
 excerpt: "Tu guía de confianza en la Ciudad de Guatemala"
 ---
 
