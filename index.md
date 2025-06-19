@@ -1,12 +1,12 @@
 ---
 layout: home
-title: "la mejor manera de sentirte bienvenido."
+title: "La mejor manera de sentirte bienvenido."
 excerpt: "Estas en buenas manos, somos tu compañero de confianza en la Ciudad de Guatemala"
 ---
 
 <p><img src="/assets/images/logo_servicios_de_bienvenida_web.png" alt="Servicios de Bienvenida" width="200"/></p>
 
-### 
+
 
 Cuidamos los detalles con pasión, para que te sientas como en tu propia casa.  Desde nuestras propiedades, puedes descubrir y disfrutar la Ciudad de Guatemala, ya sea que vienes de paseo, de trabajo o por conveniencia.  Nuestras propiedades están ubicadas accesibles y céntricas en diferentes sectores premium de la ciudad. 
 
