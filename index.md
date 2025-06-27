@@ -4,7 +4,7 @@ title: "La mejor manera de sentirte bienvenido."
 excerpt: "Estas en buenas manos, somos tu compañero de confianza en la Ciudad de Guatemala"
 ---
 
-<p><img src="/assets/images/logo_servicios_de_bienvenida_web.png" alt="Servicios de Bienvenida" width="200"/></p>
+<img src="/assets/images/IMG_0381.jpg" alt="Vista de nuestras propiedades" style="width:100%; max-width:1000px; border-radius:12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 2rem auto; display: block;">
 
 
 
