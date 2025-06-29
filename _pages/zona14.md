@@ -6,7 +6,7 @@ permalink: /zona14/
 
 <div style="text-align: center;">
 
-### ¿Dónde quedarnos?
+<h3>¿Dónde quedarnos?</h3>
 <p style="font-size: 1.1rem;">Descubre nuestras propiedades disponibles en esta exclusiva zona:</p>
 
 <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
@@ -29,10 +29,10 @@ permalink: /zona14/
 
 <br><br>
 
-### ¿Dónde comer?
+<h3>¿Dónde comer?</h3>
 <p style="font-style: italic; font-size: 1rem;">Recomendaciones próximas a nuestras propiedades.</p>
 
-### ¿Qué hacer?
+<h3>¿Qué hacer?</h3>
 <p style="font-style: italic; font-size: 1rem;">Lugares de interés, entretenimiento y actividades.</p>
 
 <br>
@@ -41,4 +41,3 @@ permalink: /zona14/
 </a>
 
 </div>
-
