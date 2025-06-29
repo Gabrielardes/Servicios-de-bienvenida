@@ -1,30 +1,26 @@
 ---
-layout: page
-title: "Conozcamos Zona 10"
+title: "Zona 10"
+layout: single
 permalink: /zona10/
 ---
 
-<!-- Imagen de portada -->
-<img src="/assets/images/zona10_optimized.jpg" alt="Zona 10" style="display: block; margin: 2rem auto; border-radius: 12px; max-width: 1000px; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+<img src="/assets/images/Zona 10.jpg" alt="Zona 10" style="width:100%; border-radius: 12px; margin-bottom: 2rem;" />
 
-<!-- Contenido -->
-<div style="max-width: 1000px; margin: auto; padding: 2rem; font-size: 1.1rem; text-align: justify;">
+<div style="text-align: justify; font-size: 1.1rem; line-height: 1.6;">
+  <h3 style="text-align: center;">¿Dónde quedarnos?</h3>
+  <p style="text-align: center;">
+    <a href="https://www.airbnb.mx/rooms/1249461738512117875?guests=1&adults=1&s=67&unique_share_id=85f7acfa-eb6f-4211-a707-3e60ac16d535" target="_blank" style="color: #c76f52; font-weight: bold;">
+      Ver nuestro Airbnb en Zona 10
+    </a>
+  </p>
 
-### ¿Dónde quedarnos?
+  <h3 style="text-align: center;">¿Dónde comer?</h3>
+  <p style="text-align: center; font-style: italic;">Recomendaciones próximas a nuestra propiedad.</p>
 
-[Ver nuestro Airbnb en Zona 10](https://www.airbnb.mx/rooms/1249461738512117875?guests=1&adults=1&s=67&unique_share_id=85f7acfa-eb6f-4211-a707-3e60ac16d535)
-
-### ¿Dónde comer?
-
-_Recomendaciones próximas a nuestra propiedad._
-
-### ¿Qué hacer?
-
-_Lugares de interés, entretenimiento y actividades._
-
+  <h3 style="text-align: center;">¿Qué hacer?</h3>
+  <p style="text-align: center; font-style: italic;">Lugares de interés, entretenimiento y actividades.</p>
 </div>
 
-<!-- Botón de regreso -->
-<div style="text-align: center; margin-bottom: 2rem;">
-  <a href="/" style="background-color: #f7b693; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; color: white;">Volver al inicio</a>
+<div style="text-align: center; margin-top: 2rem;">
+  <a href="/" class="btn" style="background-color: #f7a98b; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none;">Volver al inicio</a>
 </div>
