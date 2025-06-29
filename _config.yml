@@ -49,6 +49,5 @@ include:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-feed
   - jemoji
   - jekyll-include-cache
