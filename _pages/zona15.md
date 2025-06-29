@@ -1,24 +1,38 @@
 ---
 layout: page
-title: "Conozcamos Zona 15"
-permalink: "/zona15/"
+title: "Zona 15"
+permalink: /zona15/
 ---
 
-## ¿Dónde quedarnos?
+<div style="text-align: center;">
 
-[Ver nuestro Airbnb en Zona 15](https://www.airbnb.mx/rooms/1240146706546692001?guests=1&adults=1&s=67&unique_share_id=dc690c2a-d814-490f-8288-be3bc1cdb144)
+### ¿Dónde quedarnos?
+<p style="font-size: 1.1rem;">Descubre nuestras propiedades disponibles en esta exclusiva zona:</p>
 
-<!-- Aquí puedes insertar una imagen -->
-<!-- ![Tu propiedad](ruta/a/la/imagen.jpg) -->
+<div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+  <div style="max-width: 320px;">
+    <img src="/assets/images/zona15-1.jpg" alt="Zona 15 - Propiedad destacada" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <br><br>
+    <a href="#" target="_blank">
+      <button style="background-color: #f6a085; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">Confirma disponibilidad</button>
+    </a>
+  </div>
 
-## ¿Dónde comer?
-
-_Recomendaciones próximas a nuestra propiedad._
-
-## ¿Qué hacer?
-
-_Lugares de interés, entretenimiento y actividades._
-
-<div style="text-align:center; margin-top:30px;">
-  <a href="/" style="background-color:#f59b83; color:white; padding:10px 20px; border-radius:8px; text-decoration:none;">Volver al inicio</a>
+  <!-- Puedes duplicar el bloque de arriba si agregas más propiedades -->
 </div>
+
+<br><br>
+
+### ¿Dónde comer?
+<p style="font-style: italic; font-size: 1rem;">Recomendaciones próximas a nuestras propiedades.</p>
+
+### ¿Qué hacer?
+<p style="font-style: italic; font-size: 1rem;">Lugares de interés, entretenimiento y actividades.</p>
+
+<br>
+<a href="/" style="text-decoration: none;">
+  <button style="background-color: #f6a085; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">Volver al inicio</button>
+</a>
+
+</div>
+
