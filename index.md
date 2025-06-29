@@ -16,10 +16,10 @@ excerpt: "Estas en buenas manos, somos tu compañero de confianza en la Ciudad d
 </p>
 
 ---
-<div style="text-align:center;">
-  <a href="/zona10/" style="background-color:#f69d84; color:white; padding:12px 24px; border-radius:12px; text-decoration:none; margin:10px;">Conozcamos Zona 10</a>
-  <a href="/zona14/" style="background-color:#f6a084; color:white; padding:12px 24px; border-radius:12px; text-decoration:none; margin:10px;">Conozcamos Zona 14</a>
-  <a href="/zona15/" style="background-color:#f9c187; color:white; padding:12px 24px; border-radius:12px; text-decoration:none; margin:10px;">Conozcamos Zona 15</a>
+<div style="display: flex; justify-content: center; gap: 1rem; margin: 2rem 0;">
+  <a href="/zona10/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 10</a>
+  <a href="/zona14/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 14</a>
+  <a href="/zona15/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 15</a>
 </div>
 
 
