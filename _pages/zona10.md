@@ -4,9 +4,11 @@ title: "Conozcamos Zona 10"
 permalink: /zona10/
 ---
 
-<img src="/assets/images/Zona_10.jpg" alt="Zona 10" style="display: block; margin: 2rem auto; border-radius: 12px; max-width: 1000px; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+<!-- Imagen de portada -->
+<img src="/assets/images/zona10_optimized.jpg" alt="Zona 10" style="display: block; margin: 2rem auto; border-radius: 12px; max-width: 1000px; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
 
-<div style="text-align: justify; font-size: 1.1rem; padding: 1rem 2rem; max-width: 1000px; margin: auto;">
+<!-- Contenido -->
+<div style="max-width: 1000px; margin: auto; padding: 2rem; font-size: 1.1rem; text-align: justify;">
 
 ### ¿Dónde quedarnos?
 
@@ -20,8 +22,9 @@ _Recomendaciones próximas a nuestra propiedad._
 
 _Lugares de interés, entretenimiento y actividades._
 
-<div style="text-align: center; margin-top: 2rem;">
-  <a href="/" style="background-color: #f7b693; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; color: white;">Volver al inicio</a>
 </div>
 
+<!-- Botón de regreso -->
+<div style="text-align: center; margin-bottom: 2rem;">
+  <a href="/" style="background-color: #f7b693; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; color: white;">Volver al inicio</a>
 </div>
