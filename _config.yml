@@ -16,7 +16,8 @@ markdown: kramdown
 author:
   name: "Servicios de Bienvenida"
   bio: "Apasionados por hacer que tu experiencia en el corazón de la Ciudad de Guatemala sea inolvidable."
-  avatar: "/assets/images/bio-photo.jpg"
+  avatar: "/assets/images/logo_servicios_de_bienvenida_web.png"
+
   links:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
