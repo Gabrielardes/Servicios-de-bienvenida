@@ -4,7 +4,7 @@ title: "Conozcamos Zona 10"
 permalink: /zona10/
 ---
 
-<img src="/assets/images/zona10_optimized.jpg" alt="Zona 10" style="display: block; margin: 2rem auto; border-radius: 12px; max-width: 1000px; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+<img src="/assets/images/Zona_10.jpg" alt="Zona 10" style="display: block; margin: 2rem auto; border-radius: 12px; max-width: 1000px; width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
 
 <div style="text-align: justify; font-size: 1.1rem; padding: 1rem 2rem; max-width: 1000px; margin: auto;">
 
