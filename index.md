@@ -16,6 +16,13 @@ excerpt: "Estas en buenas manos, somos tu compañero de confianza en la Ciudad d
 </p>
 
 ---
+<h2 style="text-align: center;">Explora nuestras zonas destacadas</h2>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 2rem 0;">
+  <a href="/zona10/" style="padding: 14px 28px; background-color: #0044cc; color: white; text-decoration: none; border-radius: 6px;">Conozcamos Zona 10</a>
+  <a href="/zona14/" style="padding: 14px 28px; background-color: #0044cc; color: white; text-decoration: none; border-radius: 6px;">Conozcamos Zona 14</a>
+  <a href="/zona15/" style="padding: 14px 28px; background-color: #0044cc; color: white; text-decoration: none; border-radius: 6px;">Conozcamos Zona 15</a>
+</div>
 
 ### Contáctanos
 
