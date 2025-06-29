@@ -1,5 +1,5 @@
 ---
-title: "Mi primera entrada"
+title: "Así empezo todo"
 date: 2025-06-28
 categories: [Blog]
 author_profile: true
