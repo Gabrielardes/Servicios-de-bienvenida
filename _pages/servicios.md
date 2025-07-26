@@ -1,3 +1,11 @@
+---
+layout: single
+title: "Nuestros Servicios"
+permalink: /servicios/
+---
+
+Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rentable, cómoda y memorable para tus huéspedes.
+
 {% include feature_row id="servicios" features=[
   {
     "image_path": "/assets/images/servicio_asesoria.png",
