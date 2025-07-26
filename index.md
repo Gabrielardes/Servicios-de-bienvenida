@@ -1,23 +1,10 @@
----
-layout: home
-title: "Servicios de Bienvenida"
-author_profile: true
----
-
-Bienvenido a **Servicios de Bienvenida**  
-Cuidamos los detalles con pasión para que te sientas como en tu propia casa.  
-Desde nuestras propiedades puedes descubrir y disfrutar la Ciudad de Guatemala,  
-ya sea que vengas por trabajo, descanso o conveniencia.
-
----
-
 ## Nuestros Servicios
 
 Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rentable, cómoda y memorable para tus huéspedes.
 
-{:.feature_row}
+{: .feature_row}
 
-- image_path: /assets/images/servicio_asesoria.png
+- image_path: /assets/servicio_asesoria.png
   alt: "Asesoría y acompañamiento"
   title: "Asesoría y Acompañamiento"
   excerpt: "Te guiamos paso a paso para convertir tu propiedad en una renta exitosa."
@@ -25,7 +12,7 @@ Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rent
   btn_label: "Ver más"
   btn_class: "btn--primary"
 
-- image_path: /assets/images/servicio_mantenimiento.png
+- image_path: /assets/servicio_mantenimiento.png
   alt: "Mantenimiento y limpieza"
   title: "Mantenimiento y Limpieza"
   excerpt: "Coordinamos limpiezas, reparaciones y mantenimientos preventivos."
@@ -33,7 +20,7 @@ Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rent
   btn_label: "Ver más"
   btn_class: "btn--primary"
 
-- image_path: /assets/images/servicio_decoracion.png
+- image_path: /assets/servicio_decoracion.png
   alt: "Decoración y montaje"
   title: "Decoración y Montaje"
   excerpt: "Preparamos tu propiedad para destacar entre las demás."
@@ -41,10 +28,12 @@ Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rent
   btn_label: "Ver más"
   btn_class: "btn--primary"
 
-- image_path: /assets/images/servicio_administracion.png
-  alt: "Administración de propiedades"
-  title: "Administración Total"
+- image_path: /assets/servicio_administracion.png
+  alt: "Administración total"
+  title: "Administración de propiedades"
   excerpt: "Nos encargamos de todo para que tú disfrutes de los beneficios."
   url: "/servicios/administracion/"
   btn_label: "Ver más"
   btn_class: "btn--primary"
+
+
