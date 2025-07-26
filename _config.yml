@@ -60,5 +60,6 @@ plugins:
   - jekyll-include-cache
 
 header_pages:
+  - index.md
   - _pages/posts.md
   - _pages/servicios.md
