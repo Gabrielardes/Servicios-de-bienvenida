@@ -1,8 +1,7 @@
-
 ---
 layout: home
-title: "Estas en buenas manos"
-excerpt: "Estas en buenas manos, somos tu compañero de confianza en la Ciudad de Guatemala"
+title: "Estás en buenas manos"
+excerpt: "Estás en buenas manos, somos tu compañero de confianza en la Ciudad de Guatemala"
 author_profile: true
 ---
 
