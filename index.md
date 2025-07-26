@@ -31,7 +31,11 @@ excerpt: "Estas en buenas manos, somos tu compañero de confianza en la Ciudad d
 
 ---
 
-## Nuestros Servicios
+---
+
+---
+
+# Nuestros Servicios
 
 Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rentable, cómoda y memorable para tus huéspedes.
 
@@ -67,3 +71,4 @@ Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rent
   url: "/servicios/administracion/"
   btn_label: "Ver más"
   btn_class: "btn--primary"
+
