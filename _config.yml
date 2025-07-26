@@ -61,3 +61,4 @@ plugins:
 
 header_pages:
   - _pages/posts.md
+  - _pages/servicios.md
