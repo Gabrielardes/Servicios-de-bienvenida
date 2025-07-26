@@ -1,3 +1,17 @@
+---
+layout: splash
+permalink: /
+title: "Servicios de Bienvenida"
+subtitle: "Estás en buenas manos en la Ciudad de Guatemala"
+---
+
+## Bienvenido
+
+Cuidamos los detalles con pasión, para que te sientas como en tu propia casa.  
+Desde nuestras propiedades, puedes descubrir y disfrutar la Ciudad de Guatemala, ya sea que vengas de paseo, de trabajo o por conveniencia.
+
+---
+
 ## Nuestros Servicios
 
 Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rentable, cómoda y memorable para tus huéspedes.
@@ -36,4 +50,11 @@ Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rent
   btn_label: "Ver más"
   btn_class: "btn--primary"
 
+---
 
+## Contáctanos
+
+- 📧 Correo: [serviciosdebienvenidagt@gmail.com](mailto:serviciosdebienvenidagt@gmail.com)  
+- 📞 WhatsApp: [https://wa.me/50240339081](https://wa.me/50240339081)  
+- 📷 Instagram: [@serviciosdebienvenida](https://www.instagram.com/serviciosdebienvenida)  
+- 👍 Facebook: [Servicios de Bienvenida](https://www.facebook.com/profile.php?id=61577256517959)
