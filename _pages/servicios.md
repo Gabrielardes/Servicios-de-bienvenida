@@ -8,8 +8,8 @@ header:
   caption: "Estas en buenas manos"
 ---
 
-Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. 
-Quis nulla, netus tempor in diam gravida tincidunt.  
+En Servicios de Bienvenida nos especializamos en la administración de propiedades para renta corta.
+Entendemos las necesidades de los anfitriones.  Algunos quieren tener acceso completo, otros quieren saber poco o nada de la operacion.  Estas en buenas manos, nos encargamos del proceso operativo y de atención al huésped, para que disfrutes de los beneficios del arrendamiento a corto plazo.
 {: .text-center }
 
 <div class="feature__wrapper">
