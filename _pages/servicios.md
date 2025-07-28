@@ -1,46 +1,22 @@
 ---
-layout: single
-title: "Nuestros Servicios"
+layout: splash
+title: "Servicios Profesionales"
 permalink: /servicios/
+header:
+  overlay_image: /assets/images/banner_servicios_encabezado_final.jpg
+  overlay_filter: 0.2
+  caption: "Servicios que cuidarán tu propiedad como si fuera nuestra"
 ---
 
-Conoce cómo podemos ayudarte a transformar tu propiedad en una experiencia rentable, cómoda y memorable para tus huéspedes.
+## Servicios Profesionales a Propiedades
 
-{% include feature_row id="servicios" features=[
-  {
-    "image_path": "/assets/images/servicio_asesoria.png",
-    "alt": "Asesoría y acompañamiento",
-    "title": "Asesoría y Acompañamiento",
-    "excerpt": "Te guiamos paso a paso para convertir tu propiedad en una renta exitosa.",
-    "url": "/servicios/asesoria/",
-    "btn_label": "Ver más",
-    "btn_class": "btn--primary"
-  },
-  {
-    "image_path": "/assets/images/servicio_mantenimiento.png",
-    "alt": "Mantenimiento y limpieza",
-    "title": "Mantenimiento y Limpieza",
-    "excerpt": "Coordinamos limpiezas, reparaciones y mantenimientos preventivos.",
-    "url": "/servicios/mantenimiento/",
-    "btn_label": "Ver más",
-    "btn_class": "btn--primary"
-  },
-  {
-    "image_path": "/assets/images/servicio_decoracion.png",
-    "alt": "Decoración y montaje",
-    "title": "Decoración y Montaje",
-    "excerpt": "Preparamos tu propiedad para destacar entre las demás.",
-    "url": "/servicios/decoracion/",
-    "btn_label": "Ver más",
-    "btn_class": "btn--primary"
-  },
-  {
-    "image_path": "/assets/images/servicio_administracion.png",
-    "alt": "Administración total",
-    "title": "Administración Total",
-    "excerpt": "Nos encargamos de todo para que tú disfrutes de los beneficios.",
-    "url": "/servicios/administracion/",
-    "btn_label": "Ver más",
-    "btn_class": "btn--primary"
-  }
-] %}
+En Servicios de Bienvenida ayudamos a los propietarios a sacar el mayor provecho de sus inmuebles. Ofrecemos:
+
+- Administración de propiedades
+- Decoración e interiorismo
+- Asesoría de anfitriones
+- Gestión de mantenimiento
+- Atención a huéspedes y gestión operativa
+
+¿Quieres saber más? Escríbenos a [serviciosdebienvenidagt@gmail.com](mailto:serviciosdebienvenidagt@gmail.com)
+
