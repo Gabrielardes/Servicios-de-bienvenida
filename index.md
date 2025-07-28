@@ -22,6 +22,9 @@ author_profile: true
   <a href="/zona14/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 14</a>
   <a href="/zona15/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 15</a>
 </div>
+{:.text-center}
+[**SERVICIOS PROFESIONALES A PROPIEDADES**](/servicios/)  
+{: .btn .btn--primary .btn--large }
 
 ## Contáctanos
 
