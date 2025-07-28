@@ -5,15 +5,13 @@ permalink: /servicios/
 header:
   overlay_image: /assets/images/banner_servicios_encabezado_final.jpg
   overlay_filter: 0.2
-  caption: "Estas en buenas manos"
+  caption: "Estás en buenas manos"
 ---
 
 <div style="text-align: center; margin-top: 2rem;">
   <img src="/assets/images/logo_servicios_de_bienvenida_web.png" alt="Logo Servicios de Bienvenida" style="height: 160px; margin-bottom: 1rem;">
   <h1 style="font-size: 1.8rem; font-weight: bold; color: #222;">Servicios de Bienvenida</h1>
 </div>
-
----
 
 <div style="text-align: center;">
 
