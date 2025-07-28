@@ -1,7 +1,7 @@
 ---
 layout: splash
-title: "Servicios Profesionales"
-permalink: /servicios/
+title: "Zona 10"
+permalink: /zona10/
 header:
   overlay_image: /assets/images/banner_servicios_encabezado_final.jpg
   overlay_filter: 0.2
