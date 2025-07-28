@@ -5,7 +5,7 @@ permalink: /servicios/
 header:
   overlay_image: /assets/images/banner_servicios_encabezado_final.jpg
   overlay_filter: 0.2
-  caption: "Servicios que cuidarán tu propiedad como si fuera nuestra"
+  caption: "Estas en buenas manos"
 ---
 
 ## Servicios Profesionales a Propiedades
