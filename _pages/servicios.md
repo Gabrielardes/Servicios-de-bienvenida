@@ -8,15 +8,50 @@ header:
   caption: "Estas en buenas manos"
 ---
 
-## Servicios Profesionales a Propiedades
+Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. 
+Quis nulla, netus tempor in diam gravida tincidunt.  
+{: .text-center }
 
-En Servicios de Bienvenida ayudamos a los propietarios a sacar el mayor provecho de sus inmuebles. Ofrecemos:
+<div class="feature__wrapper">
+  <a href="#administracion" class="feature__item">
+    <img src="/assets/images/servicio_administracion.png" alt="Administración de Propiedades">
+    <h3 class="feature__title">Administración de Propiedades</h3>
+  </a>
+  <a href="#asesoria" class="feature__item">
+    <img src="/assets/images/servicio_asesoria.png" alt="Asesoría">
+    <h3 class="feature__title">Asesoría</h3>
+  </a>
+  <a href="#decoracion" class="feature__item">
+    <img src="/assets/images/servicio_decoracion.png" alt="Decoración">
+    <h3 class="feature__title">Montaje y Decoración</h3>
+  </a>
+  <a href="#mantenimiento" class="feature__item">
+    <img src="/assets/images/servicio_mantenimiento.png" alt="Mantenimiento">
+    <h3 class="feature__title">Mantenimientos Preventivos y Correctivos</h3>
+  </a>
+</div>
 
-- Administración de propiedades
-- Decoración e interiorismo
-- Asesoría de anfitriones
-- Gestión de mantenimiento
-- Atención a huéspedes y gestión operativa
+---
 
-¿Quieres saber más? Escríbenos a [serviciosdebienvenidagt@gmail.com](mailto:serviciosdebienvenidagt@gmail.com)
+## <a name="administracion"></a>Administración de Propiedades
+
+Gestionamos integralmente propiedades en renta corta: reservas, limpieza, comunicación con huéspedes y más. Tu propiedad en buenas manos, sin complicaciones.
+
+---
+
+## <a name="asesoria"></a>Asesoría
+
+Ofrecemos asesoría personalizada para optimizar tus anuncios, mejorar ocupación y rentabilidad en plataformas como Airbnb.
+
+---
+
+## <a name="decoracion"></a>Montaje y Decoración
+
+Creamos espacios funcionales, acogedores y listos para impresionar desde el primer clic. Incluye mobiliario, accesorios y estilo.
+
+---
+
+## <a name="mantenimiento"></a>Mantenimientos Preventivos y Correctivos
+
+Supervisamos y coordinamos mantenimientos generales: plomería, electricidad, pintura y más. Cuidamos tu inversión.
 
