@@ -1,17 +1,13 @@
 ---
 layout: splash
-title: "Zona 10"
-permalink: /zona10/
+title: "Servicios Profesionales"
+permalink: /servicios/
 header:
-  overlay_image: /assets/images/header_zona10.jpg
-  overlay_filter: 0.3
-  caption: "Zona 10 — Vida urbana y comodidad"
-  actions:
-    - label: "Ver propiedades"
-      url: "#dondequedarnos"
+  overlay_image: /assets/images/banner_servicios_encabezado_final.jpg
+  overlay_filter: 0.2
+  caption: "Estas en buenas manos"
 ---
 
-<!-- Logo y nombre de la empresa -->
 <div style="text-align: center; margin-top: 2rem;">
   <img src="/assets/images/logo_servicios_de_bienvenida_web.png" alt="Logo Servicios de Bienvenida" style="height: 160px; margin-bottom: 1rem;">
   <h1 style="font-size: 1.8rem; font-weight: bold; color: #222;">Servicios de Bienvenida</h1>
