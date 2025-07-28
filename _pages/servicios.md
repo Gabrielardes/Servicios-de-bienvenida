@@ -6,6 +6,8 @@ header:
   overlay_image: /assets/images/banner_servicios_encabezado_final.jpg
   overlay_filter: 0.2
   caption: "Estas en buenas manos"
+toc: false
+toc_sticky: false
 ---
 
 En Servicios de Bienvenida nos especializamos en la administración de propiedades para renta corta.
