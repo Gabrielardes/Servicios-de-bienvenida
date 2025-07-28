@@ -28,6 +28,12 @@ header:
 <h3>¿Dónde comer?</h3>
 <p style="font-style: italic; font-size: 1rem;">Recomendaciones próximas a nuestra propiedad.</p>
 
-<h3>¿Q
+<h3>¿Qué hacer?</h3>
+<p style="font-style: italic; font-size: 1rem;">Lugares de interés, entretenimiento y actividades.</p>
 
+<br>
+<a href="/" style="text-decoration: none;">
+  <button style="background-color: #f6a085; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">Volver al inicio</button>
+</a>
 
+</div>
