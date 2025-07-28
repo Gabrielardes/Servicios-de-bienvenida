@@ -8,6 +8,7 @@ logo: "/assets/images/logo_servicios_de_bienvenida_web.png"
 remote_theme: mmistakes/minimal-mistakes
 
 minimal_mistakes_skin: default
+heading_anchors: false
 search: false
 
 markdown: kramdown
