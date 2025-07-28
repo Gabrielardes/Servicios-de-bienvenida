@@ -21,7 +21,9 @@ author_profile: true
   <a href="/zona10/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 10</a>
   <a href="/zona14/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 14</a>
   <a href="/zona15/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 15</a>
-<div style="margin-top: 1rem; text-align: center;">
+</div>
+
+<div style="text-align: center; margin-bottom: 2rem;">
   <a href="/servicios/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block; width: 100%; max-width: 400px;">
     SERVICIOS PROFESIONALES A PROPIEDADES
   </a>
@@ -29,7 +31,7 @@ author_profile: true
 
 ## Contáctanos
 
-- 📧 Correo: [serviciosdebienvenidagt@gmail.com](mailto:serviciosdebienvenidagt@gmail.com)  
+- ✉️ Correo: [serviciosdebienvenidagt@gmail.com](mailto:serviciosdebienvenidagt@gmail.com)  
 - 📞 WhatsApp: [https://wa.me/50240339081](https://wa.me/50240339081)  
 - 📷 Instagram: [@serviciosdebienvenida](https://www.instagram.com/serviciosdebienvenida)  
 - 👍 Facebook: [Servicios de Bienvenida](https://www.facebook.com/profile.php?id=61577256517959)
