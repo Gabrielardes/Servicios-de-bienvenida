@@ -24,7 +24,7 @@ header:
   </div>
 
   <div style="max-width: 480px;">
-    <img src="/assets/images/zona14-2.jpg" alt="Zona 14 - Suite luminosa" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <img src="/assets/images/zona14-22.jpg" alt="Zona 14 - Suite luminosa" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     <br><br>
     <a href="https://www.airbnb.mx/rooms/1383646225075121248?guests=1&adults=1&s=67&unique_share_id=fc8946a4-3ed0-4c21-9fdb-c572b51d4afc" target="_blank">
       <button style="background-color: #f6a085; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">Confirma disponibilidad</button>
