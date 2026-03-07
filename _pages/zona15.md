@@ -23,6 +23,17 @@ header:
   </div>
 </div>
 
+<div style="max-width: 480px;">
+    <img src="/assets/images/zona15-2.jpg" alt="Apartamento en Zona 15" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <br><br>
+    <a href="https://www.airbnb.mx/rooms/1538072248023216952?guests=1&adults=1&s=67&unique_share_id=9cfe0b49-ac0b-4574-9631-556de6318563" target="_blank">
+      <button style="background-color: #f6a085; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+        Confirma disponibilidad
+      </button>
+    </a>
+  </div>
+
+</div>
 <br><br>
 
 <h3>¿Dónde comer?</h3>
