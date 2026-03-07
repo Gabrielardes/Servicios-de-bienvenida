@@ -18,7 +18,6 @@ author_profile: true
 
 ---
 <div style="display: flex; justify-content: center; gap: 1rem; margin: 2rem 0;">
-  <a href="/zona10/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 10</a>
   <a href="/zona14/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 14</a>
   <a href="/zona15/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Zona 15</a>
 </div>
