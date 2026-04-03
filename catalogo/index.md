@@ -13,7 +13,7 @@ permalink: /catalogo/
 <script>
 const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
 
-// 🔹 PARSER CORRECTO (soporta comas)
+// 🔹 PARSER CSV
 function parseCSV(text) {
   const rows = [];
   let current = '';
@@ -102,27 +102,94 @@ function agregar(nombre, precio){
   actualizarCarrito();
 }
 
-// 🛒 Mostrar carrito
+// 🛒 Mostrar carrito (MEJORADO)
 function actualizarCarrito(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
   let total = 0;
-  let items = "";
+  let detalleHTML = "";
 
   carrito.forEach(p => {
     total += p.precio * p.cantidad;
-    items += `• ${p.nombre} x${p.cantidad} = Q${(p.precio * p.cantidad).toFixed(2)}%0A`;
+
+    detalleHTML += `
+      <div style="margin-bottom:10px;">
+        ${p.nombre} x${p.cantidad} - Q${(p.precio * p.cantidad).toFixed(2)}
+        <button onclick="sumar('${p.nombre}')">+</button>
+        <button onclick="restar('${p.nombre}')">-</button>
+      </div>
+    `;
   });
 
   document.getElementById("carrito").innerHTML = `
     <h3>🛒 Carrito (${carrito.length})</h3>
-    <p>Total: <b>Q${total.toFixed(2)}</b></p>
 
-    <a href="https://wa.me/50240648733?text=Hola,%20quiero%20pedir:%0A${items}%0ATotal:%20Q${total.toFixed(2)}"
-       target="_blank"
-       style="background:green;color:white;padding:10px;display:inline-block;">
-       Pedir por WhatsApp
-    </a>
+    ${detalleHTML}
+
+    <p><strong>Total: Q${total.toFixed(2)}</strong></p>
+
+    <input id="clienteNombre" placeholder="Tu nombre" style="width:100%; margin-bottom:5px;"><br>
+    <input id="clienteDireccion" placeholder="Dirección de entrega" style="width:100%; margin-bottom:10px;"><br>
+
+    <button onclick="enviarWhatsApp()" style="background:green;color:white;padding:10px;">
+      Pedir por WhatsApp
+    </button>
   `;
+}
+
+// ➕ SUMAR
+function sumar(nombre){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  carrito.forEach(p => {
+    if(p.nombre === nombre){
+      p.cantidad += 1;
+    }
+  });
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarCarrito();
+}
+
+// ➖ RESTAR
+function restar(nombre){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  carrito = carrito.map(p => {
+    if(p.nombre === nombre){
+      p.cantidad -= 1;
+    }
+    return p;
+  }).filter(p => p.cantidad > 0);
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarCarrito();
+}
+
+// 📲 ENVIAR WHATSAPP
+function enviarWhatsApp(){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  let nombre = document.getElementById("clienteNombre").value;
+  let direccion = document.getElementById("clienteDireccion").value;
+
+  if(!nombre || !direccion){
+    alert("Por favor completa tus datos");
+    return;
+  }
+
+  let total = 0;
+  let mensaje = `Hola, quiero hacer un pedido:%0A`;
+
+  carrito.forEach(p => {
+    total += p.precio * p.cantidad;
+    mensaje += `• ${p.nombre} x${p.cantidad} - Q${(p.precio * p.cantidad).toFixed(2)}%0A`;
+  });
+
+  mensaje += `%0ATotal: Q${total.toFixed(2)}%0A`;
+  mensaje += `%0ANombre: ${nombre}%0A`;
+  mensaje += `Dirección: ${direccion}`;
+
+  window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
 }
 </script>
