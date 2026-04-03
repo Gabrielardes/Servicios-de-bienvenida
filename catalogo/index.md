@@ -56,7 +56,7 @@ fetch(URL)
     filas.forEach(col => {
       const nombre = col[0];
       const categoria = col[1];
-      const foto = col[2]; // 👈 solo nombre: jabon.jpg
+      const foto = col[2] ? col[2].trim() : "";
       const descripcion = col[3];
       const precio = parseFloat(col[4]);
 
