@@ -1,3 +1,15 @@
+---
+layout: single
+title: "Catálogo de Productos"
+permalink: /catalogo/
+---
+
+<h2>Catálogo</h2>
+
+<div id="carrito" style="margin-bottom:20px;"></div>
+
+<div id="productos"></div>
+
 <script>
 const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
 
@@ -70,7 +82,7 @@ fetch(URL)
     actualizarCarrito();
   });
 
-// 🛒 Agregar
+// 🛒 Agregar producto
 function agregar(nombre, precio){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -101,7 +113,7 @@ function actualizarCarrito(){
   document.getElementById("carrito").innerHTML = `
     <h3>🛒 Carrito (${carrito.length})</h3>
     <p>Total: <b>Q${total.toFixed(2)}</b></p>
-    <a href="https://wa.me/502XXXXXXXX?text=Hola,%20quiero%20pedir:%0A${items}%0ATotal:%20Q${total.toFixed(2)}"
+    <a href="https://wa.me/50240648733?text=Hola,%20quiero%20pedir:%0A${items}%0ATotal:%20Q${total.toFixed(2)}"
        target="_blank"
        style="background:green;color:white;padding:10px;display:inline-block;">
        Pedir por WhatsApp
