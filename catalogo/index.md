@@ -1,26 +1,59 @@
 <script>
 const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
 
+let productos = [];
+
+// 🔹 PARSER CORRECTO (soporta comas)
+function parseCSV(text) {
+  const rows = [];
+  let current = '';
+  let insideQuotes = false;
+  let row = [];
+
+  for (let char of text) {
+    if (char === '"') {
+      insideQuotes = !insideQuotes;
+    } else if (char === ',' && !insideQuotes) {
+      row.push(current);
+      current = '';
+    } else if (char === '\n' && !insideQuotes) {
+      row.push(current);
+      rows.push(row);
+      row = [];
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+
+  if (current) {
+    row.push(current);
+    rows.push(row);
+  }
+
+  return rows;
+}
+
+// 🔹 Cargar productos
 fetch(URL)
   .then(res => res.text())
   .then(data => {
-    const filas = data.split("\n").slice(1);
+    const filas = parseCSV(data);
+    filas.shift();
 
     let html = "";
 
-    filas.forEach(fila => {
-      const cols = fila.split(",");
-
-      const nombre = cols[0];
-      const categoria = cols[1];
-      const foto = cols[2];
-      const descripcion = cols[3];
-      const precio = parseFloat(cols[4]);
+    filas.forEach(col => {
+      const nombre = col[0];
+      const categoria = col[1];
+      const foto = col[2];
+      const descripcion = col[3];
+      const precio = parseFloat(col[4]);
 
       if(nombre){
         html += `
           <div style="border:1px solid #ddd; padding:15px; margin:10px;">
-            <img src="${foto}" width="150"><br>
+            <img src="${foto}" width="150" onerror="this.style.display='none'"><br>
             <strong>${nombre}</strong><br>
             <small>${categoria}</small><br>
             <p>${descripcion}</p>
@@ -37,6 +70,7 @@ fetch(URL)
     actualizarCarrito();
   });
 
+// 🛒 Agregar
 function agregar(nombre, precio){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -52,6 +86,7 @@ function agregar(nombre, precio){
   actualizarCarrito();
 }
 
+// 🛒 Mostrar carrito
 function actualizarCarrito(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -66,7 +101,7 @@ function actualizarCarrito(){
   document.getElementById("carrito").innerHTML = `
     <h3>🛒 Carrito (${carrito.length})</h3>
     <p>Total: <b>Q${total.toFixed(2)}</b></p>
-    <a href="https://wa.me/TUNUMERO?text=Hola,%20quiero%20pedir:%0A${items}%0ATotal:%20Q${total.toFixed(2)}"
+    <a href="https://wa.me/502XXXXXXXX?text=Hola,%20quiero%20pedir:%0A${items}%0ATotal:%20Q${total.toFixed(2)}"
        target="_blank"
        style="background:green;color:white;padding:10px;display:inline-block;">
        Pedir por WhatsApp
