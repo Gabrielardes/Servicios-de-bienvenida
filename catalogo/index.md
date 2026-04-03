@@ -13,8 +13,6 @@ permalink: /catalogo/
 <script>
 const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
 
-let productos = [];
-
 // 🔹 PARSER CORRECTO (soporta comas)
 function parseCSV(text) {
   const rows = [];
@@ -58,21 +56,27 @@ fetch(URL)
     filas.forEach(col => {
       const nombre = col[0];
       const categoria = col[1];
-      const foto = col[2];
+      const foto = col[2]; // 👈 solo nombre: jabon.jpg
       const descripcion = col[3];
       const precio = parseFloat(col[4]);
 
       if(nombre){
         html += `
           <div style="border:1px solid #ddd; padding:15px; margin:10px;">
-            <img src="${foto}" width="150" onerror="this.style.display='none'"><br>
+            
+            <img src="/assets/images/${foto}" 
+                 width="150" 
+                 onerror="this.style.display='none'"><br>
+
             <strong>${nombre}</strong><br>
             <small>${categoria}</small><br>
             <p>${descripcion}</p>
             <b>Q${precio.toFixed(2)}</b><br><br>
+
             <button onclick="agregar('${nombre}', ${precio})">
               Agregar al carrito
             </button>
+
           </div>
         `;
       }
@@ -113,6 +117,7 @@ function actualizarCarrito(){
   document.getElementById("carrito").innerHTML = `
     <h3>🛒 Carrito (${carrito.length})</h3>
     <p>Total: <b>Q${total.toFixed(2)}</b></p>
+
     <a href="https://wa.me/50240648733?text=Hola,%20quiero%20pedir:%0A${items}%0ATotal:%20Q${total.toFixed(2)}"
        target="_blank"
        style="background:green;color:white;padding:10px;display:inline-block;">
