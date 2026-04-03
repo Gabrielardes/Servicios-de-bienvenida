@@ -35,7 +35,7 @@ fetch(URL)
             <strong>${nombre}</strong><br>
             <small>${categoria}</small><br>
             <p>${descripcion}</p>
-            <b>Q${precio}</b><br><br>
+            <b>${precio}</b><br><br>
             <button onclick="agregar('${nombre}','${precio}')">
               Agregar al carrito
             </button>
