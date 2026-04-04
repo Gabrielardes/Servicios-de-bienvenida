@@ -4,7 +4,7 @@ title: "Catálogo de Productos"
 permalink: /catalogo/
 ---
 
-<h2>Catálogo</h2>
+<h2>Insumos Imprescindibles</h2>
 
 <div id="carrito" style="margin-bottom:20px;"></div>
 <div id="productos"></div>
