@@ -206,13 +206,18 @@ function enviarWhatsApp(){
   // 🔥 ENVÍO A GOOGLE SHEETS
   fetch("https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec", {
     method: "POST",
-    body: JSON.stringify({
-      nombre,
-      telefono,
-      correo,
-      direccion,
-      pedido: pedidoTexto,
-      total: total.toFixed(2)
+  mode: "no-cors", // 🔥 SOLUCIÓN
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    nombre,
+    telefono,
+    correo,
+    direccion,
+    pedido: pedidoTexto,
+    total: total.toFixed(2)
+  })
     }),
     headers: { "Content-Type": "application/json" }
   });
