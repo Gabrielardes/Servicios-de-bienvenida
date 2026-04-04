@@ -189,7 +189,7 @@ function enviarWhatsApp(){
   mensaje += `Dirección: ${direccion}`;
 
   // 🔥 ENVÍO A GOOGLE SHEETS (CAMBIA ESTA URL)
-  fetch("PEGA_AQUI_TU_URL_DE_APPS_SCRIPT", {
+  fetch(https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec), {
     method: "POST",
     body: JSON.stringify({
       nombre,
