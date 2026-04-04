@@ -100,7 +100,7 @@ function agregar(nombre, precio){
   if(existe){
     existe.cantidad += 1;
   } else {
-    carrito.push({nombre, precio, cantidad: 1});
+    carrito.push({nombre: nombre, precio: precio, cantidad: 1});
   }
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
