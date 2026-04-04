@@ -216,7 +216,10 @@ function enviarWhatsApp(){
     }),
     headers: { "Content-Type": "application/json" }
   });
-
+.then(res => res.text())
+.then(res => console.log("RESPUESTA CRM:", res))
+.catch(err => console.error("ERROR CRM:", err));
+  
   // 📲 WHATSAPP
   window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
 
