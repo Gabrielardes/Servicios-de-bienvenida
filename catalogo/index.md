@@ -203,32 +203,27 @@ function enviarWhatsApp(){
   mensaje += `Correo: ${correo}%0A`;
   mensaje += `Dirección: ${direccion}`;
 
-  // 🔥 ENVÍO A GOOGLE SHEETS
+  // 🔥 ENVÍO A GOOGLE SHEETS (SIN CORS)
   fetch("https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec", {
     method: "POST",
-  mode: "no-cors", // 🔥 SOLUCIÓN
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    nombre,
-    telefono,
-    correo,
-    direccion,
-    pedido: pedidoTexto,
-    total: total.toFixed(2)
-  })
-    }),
-    headers: { "Content-Type": "application/json" }
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      nombre: nombre,
+      telefono: telefono,
+      correo: correo,
+      direccion: direccion,
+      pedido: pedidoTexto,
+      total: total.toFixed(2)
+    })
   });
-.then(res => res.text())
-.then(res => console.log("RESPUESTA CRM:", res))
-.catch(err => console.error("ERROR CRM:", err));
-  
-  // 📲 WHATSAPP
+
+  // 📲 WhatsApp
   window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
 
-  // 🧹 LIMPIAR
+  // 🧹 limpiar carrito
   localStorage.removeItem("carrito");
   actualizarCarrito();
 }
