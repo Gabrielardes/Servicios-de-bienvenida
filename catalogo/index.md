@@ -1,3 +1,14 @@
+---
+layout: single
+title: "Catálogo de Productos"
+permalink: /catalogo/
+---
+
+<h2>Catálogo</h2>
+
+<div id="carrito" style="margin-bottom:20px;"></div>
+<div id="productos"></div>
+
 <script>
 
 // 🔥 LIMPIAR CARRITO AL CARGAR
@@ -46,11 +57,11 @@ fetch(URL)
     let html = "";
 
     filas.forEach(col => {
-      const nombre = col[0];
-      const categoria = col[1];
+      const nombre = (col[0] || "").replace(/"/g, '&quot;');
+      const categoria = col[1] || "";
       const foto = col[2] ? col[2].trim() : "";
-      const descripcion = col[3];
-      const precio = parseFloat(col[4]);
+      const descripcion = col[3] || "";
+      const precio = parseFloat(col[4]) || 0;
 
       if(nombre){
         html += `
@@ -63,7 +74,7 @@ fetch(URL)
             <p>${descripcion}</p>
             <b>Q${precio.toFixed(2)}</b><br><br>
 
-            <button onclick="agregar('${nombre}', ${precio})">
+            <button onclick='agregar("${nombre}", ${precio})'>
               Agregar al carrito
             </button>
 
@@ -74,6 +85,10 @@ fetch(URL)
 
     document.getElementById("productos").innerHTML = html;
     actualizarCarrito();
+  })
+  .catch(err => {
+    console.error("Error cargando productos:", err);
+    document.getElementById("productos").innerHTML = "Error cargando catálogo";
   });
 
 // 🛒 Agregar producto
@@ -92,7 +107,7 @@ function agregar(nombre, precio){
   actualizarCarrito();
 }
 
-// 🛒 Mostrar carrito (ACTUALIZADO)
+// 🛒 Mostrar carrito
 function actualizarCarrito(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -105,8 +120,8 @@ function actualizarCarrito(){
     detalleHTML += `
       <div style="margin-bottom:10px;">
         ${p.nombre} x${p.cantidad} - Q${(p.precio * p.cantidad).toFixed(2)}
-        <button onclick="sumar('${p.nombre}')">+</button>
-        <button onclick="restar('${p.nombre}')">-</button>
+        <button onclick='sumar("${p.nombre}")'>+</button>
+        <button onclick='restar("${p.nombre}")'>-</button>
       </div>
     `;
   });
@@ -188,19 +203,19 @@ function enviarWhatsApp(){
   mensaje += `Correo: ${correo}%0A`;
   mensaje += `Dirección: ${direccion}`;
 
-  // 🔥 ENVÍO A GOOGLE SHEETS (CAMBIA ESTA URL)
+  // 🔥 ENVÍO A GOOGLE SHEETS
   fetch("https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec", {
-  method: "POST",
-  body: JSON.stringify({
-    nombre,
-    telefono,
-    correo,
-    direccion,
-    pedido: pedidoTexto,
-    total: total.toFixed(2)
-  }),
-  headers: { "Content-Type": "application/json" }
-});
+    method: "POST",
+    body: JSON.stringify({
+      nombre,
+      telefono,
+      correo,
+      direccion,
+      pedido: pedidoTexto,
+      total: total.toFixed(2)
+    }),
+    headers: { "Content-Type": "application/json" }
+  });
 
   // 📲 WHATSAPP
   window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
@@ -209,4 +224,5 @@ function enviarWhatsApp(){
   localStorage.removeItem("carrito");
   actualizarCarrito();
 }
+
 </script>
