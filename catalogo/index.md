@@ -11,7 +11,12 @@ permalink: /catalogo/
 <div id="productos"></div>
 
 <script>
-const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
+
+  
+// 🔥 LIMPIAR CARRITO AL CARGAR
+localStorage.removeItem("carrito");
+
+  const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
 
 // 🔹 PARSER CSV
 function parseCSV(text) {
