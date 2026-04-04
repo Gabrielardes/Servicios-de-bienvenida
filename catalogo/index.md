@@ -1,22 +1,9 @@
----
-layout: single
-title: "Catálogo de Productos"
-permalink: /catalogo/
----
-
-<h2>Catálogo</h2>
-
-<div id="carrito" style="margin-bottom:20px;"></div>
-
-<div id="productos"></div>
-
 <script>
 
-  
 // 🔥 LIMPIAR CARRITO AL CARGAR
 localStorage.removeItem("carrito");
 
-  const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
+const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
 
 // 🔹 PARSER CSV
 function parseCSV(text) {
@@ -69,9 +56,7 @@ fetch(URL)
         html += `
           <div style="border:1px solid #ddd; padding:15px; margin:10px;">
             
-            <img src="/assets/images/${foto}" 
-                 width="150" 
-                 onerror="this.style.display='none'"><br>
+            <img src="/assets/images/${foto}" width="150" onerror="this.style.display='none'"><br>
 
             <strong>${nombre}</strong><br>
             <small>${categoria}</small><br>
@@ -107,7 +92,7 @@ function agregar(nombre, precio){
   actualizarCarrito();
 }
 
-// 🛒 Mostrar carrito (MEJORADO)
+// 🛒 Mostrar carrito (ACTUALIZADO)
 function actualizarCarrito(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -134,6 +119,8 @@ function actualizarCarrito(){
     <p><strong>Total: Q${total.toFixed(2)}</strong></p>
 
     <input id="clienteNombre" placeholder="Tu nombre" style="width:100%; margin-bottom:5px;"><br>
+    <input id="clienteTelefono" placeholder="Teléfono" style="width:100%; margin-bottom:5px;"><br>
+    <input id="clienteCorreo" placeholder="Correo electrónico" style="width:100%; margin-bottom:5px;"><br>
     <input id="clienteDireccion" placeholder="Dirección de entrega" style="width:100%; margin-bottom:10px;"><br>
 
     <button onclick="enviarWhatsApp()" style="background:green;color:white;padding:10px;">
@@ -171,30 +158,55 @@ function restar(nombre){
   actualizarCarrito();
 }
 
-// 📲 ENVIAR WHATSAPP
+// 📲 WHATSAPP + CRM
 function enviarWhatsApp(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
   let nombre = document.getElementById("clienteNombre").value;
+  let telefono = document.getElementById("clienteTelefono").value;
+  let correo = document.getElementById("clienteCorreo").value;
   let direccion = document.getElementById("clienteDireccion").value;
 
-  if(!nombre || !direccion){
-    alert("Por favor completa tus datos");
+  if(!nombre || !telefono || !correo || !direccion){
+    alert("Por favor completa todos los datos");
     return;
   }
 
   let total = 0;
+  let pedidoTexto = "";
   let mensaje = `Hola, quiero hacer un pedido:%0A`;
 
   carrito.forEach(p => {
     total += p.precio * p.cantidad;
-    mensaje += `• ${p.nombre} x${p.cantidad} - Q${(p.precio * p.cantidad).toFixed(2)}%0A`;
+    pedidoTexto += `${p.nombre} x${p.cantidad} | `;
+    mensaje += `• ${p.nombre} x${p.cantidad}%0A`;
   });
 
   mensaje += `%0ATotal: Q${total.toFixed(2)}%0A`;
   mensaje += `%0ANombre: ${nombre}%0A`;
+  mensaje += `Teléfono: ${telefono}%0A`;
+  mensaje += `Correo: ${correo}%0A`;
   mensaje += `Dirección: ${direccion}`;
 
+  // 🔥 ENVÍO A GOOGLE SHEETS (CAMBIA ESTA URL)
+  fetch("PEGA_AQUI_TU_URL_DE_APPS_SCRIPT", {
+    method: "POST",
+    body: JSON.stringify({
+      nombre,
+      telefono,
+      correo,
+      direccion,
+      pedido: pedidoTexto,
+      total: total.toFixed(2)
+    }),
+    headers: { "Content-Type": "application/json" }
+  });
+
+  // 📲 WHATSAPP
   window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
+
+  // 🧹 LIMPIAR
+  localStorage.removeItem("carrito");
+  actualizarCarrito();
 }
 </script>
