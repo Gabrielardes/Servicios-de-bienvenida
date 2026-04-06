@@ -6,8 +6,99 @@ permalink: /catalogo/
 
 <h2>Insumos Imprescindibles</h2>
 
+<!-- FILTROS -->
+<div style="text-align:center; margin:20px 0;">
+  <button class="filtro" onclick="filtrar('todos')">Todos</button>
+  <button class="filtro" onclick="filtrar('Baño')">Baño</button>
+  <button class="filtro" onclick="filtrar('Dormitorio')">Dormitorio</button>
+  <button class="filtro" onclick="filtrar('Limpieza')">Limpieza</button>
+  <button class="filtro" onclick="filtrar('Utiles')">Utiles</button>
+  <button class="filtro" onclick="filtrar('Consumibles')">Consumibles</button>
+</div>
+
 <div id="carrito" style="margin-bottom:20px;"></div>
 <div id="productos"></div>
+
+<style>
+
+#productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.producto {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px;
+  background: white;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.producto:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.producto img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.nombre {
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.categoria {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.descripcion {
+  font-size: 13px;
+  min-height: 40px;
+}
+
+.precio {
+  color: #f59b83;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.boton {
+  background-color: #f59b83;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.boton:hover {
+  background-color: #e07f66;
+}
+
+.filtro {
+  background-color: #eee;
+  border: none;
+  padding: 8px 14px;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filtro:hover {
+  background-color: #f59b83;
+  color: white;
+}
+
+</style>
 
 <script>
 
@@ -65,17 +156,17 @@ fetch(URL)
 
       if(nombre){
         html += `
-          <div style="border:1px solid #ddd; padding:15px; margin:10px;">
+          <div class="producto" data-categoria="${categoria}">
             
-            <img src="/assets/images/${foto}" width="150" onerror="this.style.display='none'"><br>
+            <img src="/assets/images/${foto}" onerror="this.style.display='none'">
 
-            <strong>${nombre}</strong><br>
-            <small>${categoria}</small><br>
-            <p>${descripcion}</p>
-            <b>Q${precio.toFixed(2)}</b><br><br>
+            <div class="nombre">${nombre}</div>
+            <div class="categoria">${categoria}</div>
+            <div class="descripcion">${descripcion}</div>
+            <div class="precio">Q${precio.toFixed(2)}</div>
 
-            <button onclick='agregar("${nombre}", ${precio})'>
-              Agregar al carrito
+            <button class="boton" onclick='agregar("${nombre}", ${precio})'>
+              Agregar
             </button>
 
           </div>
@@ -203,7 +294,6 @@ function enviarWhatsApp(){
   mensaje += `Correo: ${correo}%0A`;
   mensaje += `Dirección: ${direccion}`;
 
-  // 🔥 ENVÍO A GOOGLE SHEETS (SIN CORS)
   fetch("https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec", {
     method: "POST",
     mode: "no-cors",
@@ -220,6 +310,26 @@ function enviarWhatsApp(){
     })
   });
 
+  window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
+
+  localStorage.removeItem("carrito");
+  actualizarCarrito();
+}
+
+// 🔎 FILTRO
+function filtrar(cat) {
+  let productos = document.querySelectorAll('.producto');
+
+  productos.forEach(p => {
+    if (cat === 'todos' || p.dataset.categoria === cat) {
+      p.style.display = 'block';
+    } else {
+      p.style.display = 'none';
+    }
+  });
+}
+
+</script>
   // 📲 WhatsApp
   window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
 
