@@ -29,11 +29,14 @@ permalink: /catalogo/
   gap: 20px;
 }
 
-/* GRID PRODUCTOS */
+/* PRODUCTOS SCROLL */
 #productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
 /* TARJETA */
@@ -47,7 +50,6 @@ permalink: /catalogo/
   justify-content: space-between;
 }
 
-/* CONTENIDO SUPERIOR */
 .producto-top {
   text-align: center;
 }
@@ -59,20 +61,9 @@ permalink: /catalogo/
   border-radius: 8px;
 }
 
-.nombre {
-  font-weight: bold;
-  margin: 10px 0 5px;
-}
-
-.categoria {
-  font-size: 12px;
-  color: #777;
-}
-
-.descripcion {
-  font-size: 13px;
-  min-height: 40px;
-}
+.nombre { font-weight: bold; margin: 10px 0 5px; }
+.categoria { font-size: 12px; color: #777; }
+.descripcion { font-size: 13px; min-height: 40px; }
 
 .precio {
   color: #f59b83;
@@ -80,7 +71,6 @@ permalink: /catalogo/
   margin: 10px 0;
 }
 
-/* BOTON ABAJO */
 .producto-bottom {
   margin-top: auto;
 }
@@ -95,7 +85,7 @@ permalink: /catalogo/
   width: 100%;
 }
 
-/* CARRITO FIJO */
+/* CARRITO */
 #carrito {
   position: sticky;
   top: 20px;
@@ -127,6 +117,10 @@ permalink: /catalogo/
     grid-template-columns: 1fr;
   }
 
+  #productos {
+    max-height: none;
+  }
+
   #carrito {
     position: relative;
   }
@@ -136,57 +130,23 @@ permalink: /catalogo/
 
 <script>
 
-// 🔥 YA NO BORRAMOS CARRITO AUTOMATICAMENTE
-// localStorage.removeItem("carrito");
-
 const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
 
-let clienteData = JSON.parse(localStorage.getItem("clienteData")) || {};
-
-// 🔹 CSV PARSER (igual que el tuyo)
-function parseCSV(text) {
-  const rows = [];
-  let current = '';
-  let insideQuotes = false;
-  let row = [];
-
-  for (let char of text) {
-    if (char === '"') {
-      insideQuotes = !insideQuotes;
-    } else if (char === ',' && !insideQuotes) {
-      row.push(current);
-      current = '';
-    } else if (char === '\n' && !insideQuotes) {
-      row.push(current);
-      rows.push(row);
-      row = [];
-      current = '';
-    } else {
-      current += char;
-    }
-  }
-
-  if (current) {
-    row.push(current);
-    rows.push(row);
-  }
-
-  return rows;
-}
-
-// 🔹 CARGA PRODUCTOS
+// 🔹 CARGAR PRODUCTOS
 fetch(URL)
   .then(res => res.text())
   .then(data => {
-    const filas = parseCSV(data);
+    const filas = data.split("\n").map(f => f.split(","));
     filas.shift();
 
     let html = "";
 
     filas.forEach(col => {
-      const nombre = (col[0] || "").replace(/"/g, '&quot;');
+      if(col.length < 5) return;
+
+      const nombre = col[0]?.replace(/"/g, "") || "";
       const categoria = col[1] || "";
-      const foto = col[2] ? col[2].trim() : "";
+      const foto = col[2]?.trim() || "";
       const descripcion = col[3] || "";
       const precio = parseFloat(col[4]) || 0;
 
@@ -228,7 +188,7 @@ function guardarCliente(){
   localStorage.setItem("clienteData", JSON.stringify(data));
 }
 
-// 🛒 CARRITO
+// 🛒 ACTUALIZAR CARRITO
 function actualizarCarrito(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -237,12 +197,7 @@ function actualizarCarrito(){
 
   carrito.forEach(p => {
     total += p.precio * p.cantidad;
-
-    detalleHTML += `
-      <div>
-        ${p.nombre} x${p.cantidad}
-      </div>
-    `;
+    detalleHTML += `<div>${p.nombre} x${p.cantidad}</div>`;
   });
 
   document.getElementById("carrito").innerHTML = `
@@ -264,7 +219,6 @@ function actualizarCarrito(){
     </button>
   `;
 
-  // 🔁 RECUPERAR DATOS
   let data = JSON.parse(localStorage.getItem("clienteData")) || {};
 
   document.getElementById("clienteNombre").value = data.nombre || "";
@@ -289,17 +243,50 @@ function agregar(nombre, precio){
   actualizarCarrito();
 }
 
-// 📲 WHATSAPP
+// 📲 WHATSAPP + GOOGLE SHEETS (JSON + no-cors)
 function enviarWhatsApp(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   let data = JSON.parse(localStorage.getItem("clienteData")) || {};
 
+  if(!data.nombre || !data.telefono || !data.correo || !data.direccion){
+    alert("Por favor completa todos los datos");
+    return;
+  }
+
+  let total = 0;
+  let pedidoTexto = "";
   let mensaje = "Hola, quiero hacer un pedido:%0A";
 
   carrito.forEach(p => {
+    total += p.precio * p.cantidad;
+    pedidoTexto += `${p.nombre} x${p.cantidad} | `;
     mensaje += `• ${p.nombre} x${p.cantidad}%0A`;
   });
 
+  mensaje += `%0ATotal: Q${total.toFixed(2)}%0A`;
+  mensaje += `%0ANombre: ${data.nombre}%0A`;
+  mensaje += `Teléfono: ${data.telefono}%0A`;
+  mensaje += `Correo: ${data.correo}%0A`;
+  mensaje += `Dirección: ${data.direccion}`;
+
+  // 🔥 CRM (TU MÉTODO ORIGINAL)
+  fetch("https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      nombre: data.nombre,
+      telefono: data.telefono,
+      correo: data.correo,
+      direccion: data.direccion,
+      pedido: pedidoTexto,
+      total: total.toFixed(2)
+    })
+  });
+
+  // 📲 WhatsApp
   window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
 }
 
