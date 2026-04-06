@@ -28,12 +28,6 @@ author_profile: true
   </a>
 </div>
 
-<div style="text-align: center; margin-bottom: 2rem;">
-  
-  <a href="/servicios/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block; width: 100%; max-width: 400px;">
-    SERVICIOS PROFESIONALES A PROPIEDADES
-  </a>
-
   <br><br>
 
   <a href="/catalogo/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block; width: 100%; max-width: 400px;">
