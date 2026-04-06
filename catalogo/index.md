@@ -268,6 +268,20 @@ function enviarWhatsApp(){
   mensaje += `Teléfono: ${data.telefono}%0A`;
   mensaje += `Correo: ${data.correo}%0A`;
   mensaje += `Dirección: ${data.direccion}`;
+ 
+  // 📲 WhatsApp
+window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
+
+// 🧹 SOLO limpiar carrito (NO cliente)
+localStorage.removeItem("carrito");
+
+// refrescar carrito visual
+setTimeout(() => {
+  actualizarCarrito();
+}, 500);
+
+// 💬 mensaje opcional
+alert("Pedido enviado correctamente ✅");
 
   // 🔥 CRM (TU MÉTODO ORIGINAL)
   fetch("https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec", {
