@@ -28,7 +28,7 @@ permalink: /catalogo/
 }
 
 .producto img {
-  max-width: 100%;
+  width: 100%;
   border-radius: 10px;
 }
 
@@ -49,6 +49,14 @@ permalink: /catalogo/
   padding: 15px;
   border-radius: 12px;
   background: #fafafa;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
 }
 
 @media (max-width: 900px) {
@@ -73,11 +81,15 @@ permalink: /catalogo/
 const URL = "TU_URL_AQUI";
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-let clienteData = JSON.parse(localStorage.getItem("clienteData")) || [];
+let clienteData = JSON.parse(localStorage.getItem("clienteData")) || {};
 
 fetch(URL)
   .then(res => res.json())
-  .then(data => renderProductos(data));
+  .then(data => renderProductos(data))
+  .catch(err => {
+    document.getElementById("productos").innerHTML = "Error cargando productos";
+    console.error(err);
+  });
 
 function renderProductos(productos) {
   const contenedor = document.getElementById("productos");
@@ -94,7 +106,7 @@ function renderProductos(productos) {
         </div>
 
         <div style="margin-top:auto;">
-          <button class="boton" onclick='agregar("${p.nombre}", ${p.precio})'>
+          <button class="boton" onclick="agregar('${p.nombre}', ${p.precio})">
             Agregar
           </button>
         </div>
@@ -138,10 +150,10 @@ function actualizarCarrito() {
 
     <h4>📋 Datos del cliente</h4>
 
-    <input id="clienteNombre" placeholder="Nombre" oninput="guardarCliente()" style="width:100%; margin-bottom:5px;">
-    <input id="clienteTelefono" placeholder="Teléfono" oninput="guardarCliente()" style="width:100%; margin-bottom:5px;">
-    <input id="clienteCorreo" placeholder="Correo" oninput="guardarCliente()" style="width:100%; margin-bottom:5px;">
-    <input id="clienteDireccion" placeholder="Dirección" oninput="guardarCliente()" style="width:100%; margin-bottom:10px;">
+    <input id="clienteNombre" placeholder="Nombre" oninput="guardarCliente()">
+    <input id="clienteTelefono" placeholder="Teléfono" oninput="guardarCliente()">
+    <input id="clienteCorreo" placeholder="Correo" oninput="guardarCliente()">
+    <input id="clienteDireccion" placeholder="Dirección" oninput="guardarCliente()">
 
     <button class="boton" onclick="enviarPedido()">Enviar por WhatsApp</button>
   `;
@@ -176,13 +188,4 @@ function enviarPedido() {
 }
 
 actualizarCarrito();
-</script>
-  // 📲 WhatsApp
-  window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
-
-  // 🧹 limpiar carrito
-  localStorage.removeItem("carrito");
-  actualizarCarrito();
-}
-
 </script>
