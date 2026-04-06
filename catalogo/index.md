@@ -6,17 +6,144 @@ permalink: /catalogo/
 
 <h2>Insumos Imprescindibles</h2>
 
-<div id="carrito" style="margin-bottom:20px;"></div>
-<div id="productos"></div>
+<!-- FILTROS -->
+<div style="text-align:center; margin:20px 0;">
+  <button class="filtro" onclick="filtrar('todos')">Todos</button>
+  <button class="filtro" onclick="filtrar('Baño')">Baño</button>
+  <button class="filtro" onclick="filtrar('Dormitorio')">Dormitorio</button>
+  <button class="filtro" onclick="filtrar('Limpieza')">Limpieza</button>
+  <button class="filtro" onclick="filtrar('Utiles')">Utiles</button>
+  <button class="filtro" onclick="filtrar('Consumibles')">Consumibles</button>
+</div>
+
+<div class="contenedor-tienda">
+  <div id="productos"></div>
+  <div id="carrito"></div>
+</div>
+
+<style>
+
+.contenedor-tienda {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 20px;
+}
+
+/* GRID PRODUCTOS */
+#productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* TARJETA */
+.producto {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* CONTENIDO SUPERIOR */
+.producto-top {
+  text-align: center;
+}
+
+.producto img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.nombre {
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.categoria {
+  font-size: 12px;
+  color: #777;
+}
+
+.descripcion {
+  font-size: 13px;
+  min-height: 40px;
+}
+
+.precio {
+  color: #f59b83;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* BOTON ABAJO */
+.producto-bottom {
+  margin-top: auto;
+}
+
+.boton {
+  background-color: #f59b83;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* CARRITO FIJO */
+#carrito {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+/* FILTROS */
+.filtro {
+  background-color: #eee;
+  border: none;
+  padding: 8px 14px;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filtro:hover {
+  background-color: #f59b83;
+  color: white;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .contenedor-tienda {
+    grid-template-columns: 1fr;
+  }
+
+  #carrito {
+    position: relative;
+  }
+}
+
+</style>
 
 <script>
 
-// 🔥 LIMPIAR CARRITO AL CARGAR
-localStorage.removeItem("carrito");
+// 🔥 YA NO BORRAMOS CARRITO AUTOMATICAMENTE
+// localStorage.removeItem("carrito");
 
 const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
 
-// 🔹 PARSER CSV
+let clienteData = JSON.parse(localStorage.getItem("clienteData")) || {};
+
+// 🔹 CSV PARSER (igual que el tuyo)
 function parseCSV(text) {
   const rows = [];
   let current = '';
@@ -47,7 +174,7 @@ function parseCSV(text) {
   return rows;
 }
 
-// 🔹 Cargar productos
+// 🔹 CARGA PRODUCTOS
 fetch(URL)
   .then(res => res.text())
   .then(data => {
@@ -65,18 +192,21 @@ fetch(URL)
 
       if(nombre){
         html += `
-          <div style="border:1px solid #ddd; padding:15px; margin:10px;">
+          <div class="producto" data-categoria="${categoria}">
             
-            <img src="/assets/images/${foto}" width="150" onerror="this.style.display='none'"><br>
+            <div class="producto-top">
+              <img src="/assets/images/${foto}" onerror="this.style.display='none'">
+              <div class="nombre">${nombre}</div>
+              <div class="categoria">${categoria}</div>
+              <div class="descripcion">${descripcion}</div>
+              <div class="precio">Q${precio.toFixed(2)}</div>
+            </div>
 
-            <strong>${nombre}</strong><br>
-            <small>${categoria}</small><br>
-            <p>${descripcion}</p>
-            <b>Q${precio.toFixed(2)}</b><br><br>
-
-            <button onclick='agregar("${nombre}", ${precio})'>
-              Agregar al carrito
-            </button>
+            <div class="producto-bottom">
+              <button class="boton" onclick='agregar("${nombre}", ${precio})'>
+                Agregar
+              </button>
+            </div>
 
           </div>
         `;
@@ -85,29 +215,20 @@ fetch(URL)
 
     document.getElementById("productos").innerHTML = html;
     actualizarCarrito();
-  })
-  .catch(err => {
-    console.error("Error cargando productos:", err);
-    document.getElementById("productos").innerHTML = "Error cargando catálogo";
   });
 
-// 🛒 Agregar producto
-function agregar(nombre, precio){
-  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-  let existe = carrito.find(p => p.nombre === nombre);
-
-  if(existe){
-    existe.cantidad += 1;
-  } else {
-    carrito.push({nombre: nombre, precio: precio, cantidad: 1});
-  }
-
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  actualizarCarrito();
+// 🛒 GUARDAR CLIENTE
+function guardarCliente(){
+  const data = {
+    nombre: document.getElementById("clienteNombre").value,
+    telefono: document.getElementById("clienteTelefono").value,
+    correo: document.getElementById("clienteCorreo").value,
+    direccion: document.getElementById("clienteDireccion").value
+  };
+  localStorage.setItem("clienteData", JSON.stringify(data));
 }
 
-// 🛒 Mostrar carrito
+// 🛒 CARRITO
 function actualizarCarrito(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -118,114 +239,81 @@ function actualizarCarrito(){
     total += p.precio * p.cantidad;
 
     detalleHTML += `
-      <div style="margin-bottom:10px;">
-        ${p.nombre} x${p.cantidad} - Q${(p.precio * p.cantidad).toFixed(2)}
-        <button onclick='sumar("${p.nombre}")'>+</button>
-        <button onclick='restar("${p.nombre}")'>-</button>
+      <div>
+        ${p.nombre} x${p.cantidad}
       </div>
     `;
   });
 
   document.getElementById("carrito").innerHTML = `
-    <h3>🛒 Carrito (${carrito.length})</h3>
+    <h3>🛒 Pedido</h3>
 
     ${detalleHTML}
 
     <p><strong>Total: Q${total.toFixed(2)}</strong></p>
 
-    <input id="clienteNombre" placeholder="Tu nombre" style="width:100%; margin-bottom:5px;"><br>
-    <input id="clienteTelefono" placeholder="Teléfono" style="width:100%; margin-bottom:5px;"><br>
-    <input id="clienteCorreo" placeholder="Correo electrónico" style="width:100%; margin-bottom:5px;"><br>
-    <input id="clienteDireccion" placeholder="Dirección de entrega" style="width:100%; margin-bottom:10px;"><br>
+    <hr>
 
-    <button onclick="enviarWhatsApp()" style="background:green;color:white;padding:10px;">
-      Pedir por WhatsApp
+    <input id="clienteNombre" placeholder="Nombre" oninput="guardarCliente()">
+    <input id="clienteTelefono" placeholder="Teléfono" oninput="guardarCliente()">
+    <input id="clienteCorreo" placeholder="Correo" oninput="guardarCliente()">
+    <input id="clienteDireccion" placeholder="Dirección" oninput="guardarCliente()">
+
+    <button onclick="enviarWhatsApp()" class="boton">
+      Enviar por WhatsApp
     </button>
   `;
+
+  // 🔁 RECUPERAR DATOS
+  let data = JSON.parse(localStorage.getItem("clienteData")) || {};
+
+  document.getElementById("clienteNombre").value = data.nombre || "";
+  document.getElementById("clienteTelefono").value = data.telefono || "";
+  document.getElementById("clienteCorreo").value = data.correo || "";
+  document.getElementById("clienteDireccion").value = data.direccion || "";
 }
 
-// ➕ SUMAR
-function sumar(nombre){
+// ➕ AGREGAR
+function agregar(nombre, precio){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-  carrito.forEach(p => {
-    if(p.nombre === nombre){
-      p.cantidad += 1;
-    }
-  });
+  let existe = carrito.find(p => p.nombre === nombre);
 
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  actualizarCarrito();
-}
-
-// ➖ RESTAR
-function restar(nombre){
-  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-  carrito = carrito.map(p => {
-    if(p.nombre === nombre){
-      p.cantidad -= 1;
-    }
-    return p;
-  }).filter(p => p.cantidad > 0);
-
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-  actualizarCarrito();
-}
-
-// 📲 WHATSAPP + CRM
-function enviarWhatsApp(){
-  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-  let nombre = document.getElementById("clienteNombre").value;
-  let telefono = document.getElementById("clienteTelefono").value;
-  let correo = document.getElementById("clienteCorreo").value;
-  let direccion = document.getElementById("clienteDireccion").value;
-
-  if(!nombre || !telefono || !correo || !direccion){
-    alert("Por favor completa todos los datos");
-    return;
+  if(existe){
+    existe.cantidad += 1;
+  } else {
+    carrito.push({nombre, precio, cantidad: 1});
   }
 
-  let total = 0;
-  let pedidoTexto = "";
-  let mensaje = `Hola, quiero hacer un pedido:%0A`;
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarCarrito();
+}
+
+// 📲 WHATSAPP
+function enviarWhatsApp(){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let data = JSON.parse(localStorage.getItem("clienteData")) || {};
+
+  let mensaje = "Hola, quiero hacer un pedido:%0A";
 
   carrito.forEach(p => {
-    total += p.precio * p.cantidad;
-    pedidoTexto += `${p.nombre} x${p.cantidad} | `;
     mensaje += `• ${p.nombre} x${p.cantidad}%0A`;
   });
 
-  mensaje += `%0ATotal: Q${total.toFixed(2)}%0A`;
-  mensaje += `%0ANombre: ${nombre}%0A`;
-  mensaje += `Teléfono: ${telefono}%0A`;
-  mensaje += `Correo: ${correo}%0A`;
-  mensaje += `Dirección: ${direccion}`;
-
-  // 🔥 ENVÍO A GOOGLE SHEETS (SIN CORS)
-  fetch("https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      nombre: nombre,
-      telefono: telefono,
-      correo: correo,
-      direccion: direccion,
-      pedido: pedidoTexto,
-      total: total.toFixed(2)
-    })
-  });
-
-  // 📲 WhatsApp
   window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
-
-  // 🧹 limpiar carrito
-  localStorage.removeItem("carrito");
-  actualizarCarrito();
 }
 
-</scrip
+// 🔎 FILTRO
+function filtrar(cat) {
+  let productos = document.querySelectorAll('.producto');
+
+  productos.forEach(p => {
+    if (cat === 'todos' || p.dataset.categoria === cat) {
+      p.style.display = 'block';
+    } else {
+      p.style.display = 'none';
+    }
+  });
+}
+
+</script>
