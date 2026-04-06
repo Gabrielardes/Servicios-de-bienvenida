@@ -27,8 +27,12 @@ author_profile: true
   </a>
 
   <a href="/catalogo/" style="background-color: #f59b83; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: block; width: 100%; max-width: 400px; margin: 0 auto;">
-    CATÁLOGO INSUMOS IMPRESCINDIBLES
+    COMPRAR INSUMOS PARA TU PROPIEDAD
   </a>
+
+<p style="text-align:center; font-size:14px; margin-top:8px;">
+    Todo lo necesario para operar tu propiedad sin complicaciones.  Estas en buenas manos.
+  </p>
 
 </div>
 
