@@ -369,5 +369,3 @@ function filtrar(cat) {
 }
 
 </script>
-
-</script>
