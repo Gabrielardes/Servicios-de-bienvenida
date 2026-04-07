@@ -26,18 +26,17 @@ classes: page-catalogo
 
 .contenedor-tienda {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: minmax(0, 1fr) 320px;
   gap: 20px;
+  align-items: start;
 }
 
 /* PRODUCTOS SCROLL */
 #productos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 👈 versión inteligente */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
-  max-height: 80vh;
-  overflow-y: auto;
-  padding-right: 10px;
+  width: 100%;
 }
 
 /* TARJETA */
