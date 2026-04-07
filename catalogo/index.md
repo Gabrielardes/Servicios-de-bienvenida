@@ -32,7 +32,7 @@ permalink: /catalogo/
 /* PRODUCTOS SCROLL */
 #productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 👈 versión inteligente */
   gap: 20px;
   max-height: 80vh;
   overflow-y: auto;
@@ -111,13 +111,13 @@ permalink: /catalogo/
   color: white;
 }
 
-/* MOBILE */
 @media (max-width: 900px) {
   .contenedor-tienda {
     grid-template-columns: 1fr;
   }
 
   #productos {
+    grid-template-columns: 1fr; /* 👈 1 columna en celular */
     max-height: none;
   }
 
@@ -125,7 +125,6 @@ permalink: /catalogo/
     position: relative;
   }
 }
-
 </style>
 
 <script>
