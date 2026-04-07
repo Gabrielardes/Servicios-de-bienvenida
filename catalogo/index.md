@@ -165,11 +165,9 @@ fetch(URL)
               <div class="precio">Q${precio.toFixed(2)}</div>
             </div>
 
-            <div class="producto-bottom">
-              <button class="boton" onclick='agregar("${nombre}", ${precio})'>
-                Agregar
-              </button>
-            </div>
+<div class="producto-bottom" id="control-${nombre}">
+  ${controlCantidad(nombre, precio)}
+</div>
           </div>
         `;
       }
@@ -177,6 +175,7 @@ fetch(URL)
 
     document.getElementById("productos").innerHTML = html;
     actualizarCarrito();
+    actualizarControles();
   });
 
 // 🛒 ACTUALIZAR CARRITO
@@ -210,8 +209,74 @@ function actualizarCarrito(){
     </button>
   `;
 }
+// 🧠 CONTROL DE CANTIDAD (NUEVO)
+function controlCantidad(nombre, precio){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  let producto = carrito.find(p => p.nombre === nombre);
 
-// ➕ AGREGAR
+  if(producto){
+    return `
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+        <button onclick="cambiarCantidad('${nombre}', -1)" class="boton">-</button>
+        <span>${producto.cantidad}</span>
+        <button onclick="cambiarCantidad('${nombre}', 1)" class="boton">+</button>
+      </div>
+    `;
+  } else {
+    return `
+      <button class="boton" onclick='agregar("${nombre}", ${precio})'>
+        Agregar
+      </button>
+    `;
+  }
+}
+function cambiarCantidad(nombre, cambio){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  let producto = carrito.find(p => p.nombre === nombre);
+
+  if(producto){
+    producto.cantidad += cambio;
+
+    if(producto.cantidad <= 0){
+      carrito = carrito.filter(p => p.nombre !== nombre);
+    }
+  }
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  actualizarCarrito();
+  actualizarControles();
+}
+function actualizarControles(){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  carrito.forEach(p => {
+    let contenedor = document.getElementById(`control-${p.nombre}`);
+    if(contenedor){
+      contenedor.innerHTML = controlCantidad(p.nombre, p.precio);
+    }
+  });
+
+  // También actualizar los que ya no están
+  document.querySelectorAll("[id^='control-']").forEach(div => {
+    let nombre = div.id.replace("control-", "");
+    let producto = carrito.find(p => p.nombre === nombre);
+
+    if(!producto){
+      // reconstruir botón agregar (necesitamos precio)
+      let precioTexto = div.closest(".producto").querySelector(".precio").innerText;
+      let precio = parseFloat(precioTexto.replace("Q",""));
+
+      div.innerHTML = `
+        <button class="boton" onclick='agregar("${nombre}", ${precio})'>
+          Agregar
+        </button>
+      `;
+    }
+  });
+}
+  // ➕ AGREGAR
 function agregar(nombre, precio){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -225,6 +290,7 @@ function agregar(nombre, precio){
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarCarrito();
+   actualizarControles(); // 👈 PASO 5 AQUÍ
 }
 
 // 📲 WHATSAPP + GOOGLE SHEETS
