@@ -166,7 +166,7 @@ fetch(URL)
             </div>
 
             <div class="producto-bottom">
-              <button class="boton" onclick='agregar("${nombre}", ${precio})'>
+              <div id="control-${nombre.replace(/\s/g,'')}"></div>
                 Agregar
               </button>
             </div>
@@ -224,9 +224,59 @@ function agregar(nombre, precio){
   }
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
+
   actualizarCarrito();
+  renderControlesProductos();
+}
+function renderControlesProductos(){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  document.querySelectorAll(".producto").forEach(prod => {
+    let nombre = prod.querySelector(".nombre").innerText;
+    let id = "control-" + nombre.replace(/\s/g,'');
+
+    let item = carrito.find(p => p.nombre === nombre);
+    let contenedor = document.getElementById(id);
+
+    if(!contenedor) return;
+
+    if(item){
+      contenedor.innerHTML = `
+        <div style="display:flex; gap:5px; justify-content:center; align-items:center;">
+          <button onclick="cambiarCantidad('${nombre}', -1)">-</button>
+          <span style="min-width:20px; text-align:center;">${item.cantidad}</span>
+          <button onclick="cambiarCantidad('${nombre}', 1)">+</button>
+        </div>
+      `;
+    } else {
+      let precio = prod.querySelector(".precio").innerText.replace('Q','');
+      contenedor.innerHTML = `
+        <button class="boton" onclick="agregar('${nombre}', ${precio})">
+          Agregar
+        </button>
+      `;
+    }
+  });
 }
 
+function cambiarCantidad(nombre, cambio){
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+  let item = carrito.find(p => p.nombre === nombre);
+
+  if(item){
+    item.cantidad += cambio;
+
+    if(item.cantidad <= 0){
+      carrito = carrito.filter(p => p.nombre !== nombre);
+    }
+  }
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+
+  actualizarCarrito();
+  renderControlesProductos();
+}
 // 📲 WHATSAPP + GOOGLE SHEETS
 function enviarWhatsApp(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
