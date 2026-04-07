@@ -206,7 +206,7 @@ function actualizarCarrito(){
     <input id="clienteDireccion" placeholder="Dirección">
 
     <button onclick="enviarWhatsApp()" class="boton">
-      Enviar por WhatsApp
+      Enviar Pedido y Confirmar Existencias
     </button>
   `;
 }
