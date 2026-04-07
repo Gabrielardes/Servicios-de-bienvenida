@@ -132,6 +132,10 @@ permalink: /catalogo/
 
 const URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS34ggzEln16jeRxm1-L7a3p5TuaT4_oOe6VCI9nHlDr80RLcPk-ZptbPHFQ7ZCXxO7puhHUZoMfWq9/pub?output=csv";
 
+// 🧹 LIMPIAR TODO AL CARGAR (SOLUCIÓN A TU PROBLEMA)
+localStorage.removeItem("carrito");
+localStorage.removeItem("clienteData");
+
 // 🔹 CARGAR PRODUCTOS
 fetch(URL)
   .then(res => res.text())
@@ -153,7 +157,6 @@ fetch(URL)
       if(nombre){
         html += `
           <div class="producto" data-categoria="${categoria}">
-            
             <div class="producto-top">
               <img src="/assets/images/${foto}" onerror="this.style.display='none'">
               <div class="nombre">${nombre}</div>
@@ -167,7 +170,6 @@ fetch(URL)
                 Agregar
               </button>
             </div>
-
           </div>
         `;
       }
@@ -176,17 +178,6 @@ fetch(URL)
     document.getElementById("productos").innerHTML = html;
     actualizarCarrito();
   });
-
-// 🛒 GUARDAR CLIENTE
-function guardarCliente(){
-  const data = {
-    nombre: document.getElementById("clienteNombre").value,
-    telefono: document.getElementById("clienteTelefono").value,
-    correo: document.getElementById("clienteCorreo").value,
-    direccion: document.getElementById("clienteDireccion").value
-  };
-  localStorage.setItem("clienteData", JSON.stringify(data));
-}
 
 // 🛒 ACTUALIZAR CARRITO
 function actualizarCarrito(){
@@ -209,22 +200,15 @@ function actualizarCarrito(){
 
     <hr>
 
-    <input id="clienteNombre" placeholder="Nombre" oninput="guardarCliente()">
-    <input id="clienteTelefono" placeholder="Teléfono" oninput="guardarCliente()">
-    <input id="clienteCorreo" placeholder="Correo" oninput="guardarCliente()">
-    <input id="clienteDireccion" placeholder="Dirección" oninput="guardarCliente()">
+    <input id="clienteNombre" placeholder="Nombre">
+    <input id="clienteTelefono" placeholder="Teléfono">
+    <input id="clienteCorreo" placeholder="Correo">
+    <input id="clienteDireccion" placeholder="Dirección">
 
     <button onclick="enviarWhatsApp()" class="boton">
       Enviar por WhatsApp
     </button>
   `;
-
-  let data = JSON.parse(localStorage.getItem("clienteData")) || {};
-
-  document.getElementById("clienteNombre").value = data.nombre || "";
-  document.getElementById("clienteTelefono").value = data.telefono || "";
-  document.getElementById("clienteCorreo").value = data.correo || "";
-  document.getElementById("clienteDireccion").value = data.direccion || "";
 }
 
 // ➕ AGREGAR
@@ -243,12 +227,16 @@ function agregar(nombre, precio){
   actualizarCarrito();
 }
 
-// 📲 WHATSAPP + GOOGLE SHEETS (JSON + no-cors)
+// 📲 WHATSAPP + GOOGLE SHEETS
 function enviarWhatsApp(){
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-  let data = JSON.parse(localStorage.getItem("clienteData")) || {};
 
-  if(!data.nombre || !data.telefono || !data.correo || !data.direccion){
+  const nombre = document.getElementById("clienteNombre").value;
+  const telefono = document.getElementById("clienteTelefono").value;
+  const correo = document.getElementById("clienteCorreo").value;
+  const direccion = document.getElementById("clienteDireccion").value;
+
+  if(!nombre || !telefono || !correo || !direccion){
     alert("Por favor completa todos los datos");
     return;
   }
@@ -264,26 +252,13 @@ function enviarWhatsApp(){
   });
 
   mensaje += `%0ATotal: Q${total.toFixed(2)}%0A`;
-  mensaje += `%0ANombre: ${data.nombre}%0A`;
-  mensaje += `Teléfono: ${data.telefono}%0A`;
-  mensaje += `Correo: ${data.correo}%0A`;
-  mensaje += `Dirección: ${data.direccion}`;
- 
-  // 📲 WhatsApp
-window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
+  mensaje += `%0ANombre: ${nombre}%0A`;
+  mensaje += `Teléfono: ${telefono}%0A`;
+  mensaje += `Correo: ${correo}%0A`;
+  mensaje += `Dirección: ${direccion}%0A`;
+  mensaje += `%0AGracias por tu pedido, te contactaremos en breve 🙌`;
 
-// 🧹 SOLO limpiar carrito (NO cliente)
-localStorage.removeItem("carrito");
-
-// refrescar carrito visual
-setTimeout(() => {
-  actualizarCarrito();
-}, 500);
-
-// 💬 mensaje opcional
-alert("Pedido enviado correctamente ✅");
-
-  // 🔥 CRM (TU MÉTODO ORIGINAL)
+  // 🔥 CRM
   fetch("https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec", {
     method: "POST",
     mode: "no-cors",
@@ -291,17 +266,27 @@ alert("Pedido enviado correctamente ✅");
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      nombre: data.nombre,
-      telefono: data.telefono,
-      correo: data.correo,
-      direccion: data.direccion,
+      nombre: nombre,
+      telefono: telefono,
+      correo: correo,
+      direccion: direccion,
       pedido: pedidoTexto,
       total: total.toFixed(2)
     })
   });
 
-  // 📲 WhatsApp
+  // 📲 WhatsApp (UNA SOLA VEZ)
   window.open(`https://wa.me/50240648733?text=${mensaje}`, "_blank");
+
+  // 🧹 LIMPIAR TODO DESPUÉS DE ENVIAR
+  localStorage.removeItem("carrito");
+  localStorage.removeItem("clienteData");
+
+  setTimeout(() => {
+    actualizarCarrito();
+  }, 500);
+
+  alert("Pedido enviado correctamente ✅");
 }
 
 // 🔎 FILTRO
