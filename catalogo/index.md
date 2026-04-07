@@ -2,6 +2,7 @@
 layout: single
 title: "Catálogo de Productos"
 permalink: /catalogo/
+classes: page-catalogo
 ---
 
 <h2>Insumos Imprescindibles</h2>
@@ -123,6 +124,25 @@ permalink: /catalogo/
 
   #carrito {
     position: relative;
+  }
+}
+  /* SOLO CATÁLOGO - MÁS ANCHO */
+body.layout--single.page-catalogo .page {
+  max-width: 100% !important;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Evita que el contenido interno se limite */
+body.layout--single.page-catalogo .page__content {
+  max-width: 100% !important;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  body.layout--single.page-catalogo .page {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 </style>
