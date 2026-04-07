@@ -165,12 +165,13 @@ fetch(URL)
               <div class="precio">Q${precio.toFixed(2)}</div>
             </div>
 
-            <div class="producto-bottom">
-              <div id="control-${nombre.replace(/\s/g,'')}"></div>
-                Agregar
-              </button>
-            </div>
-          </div>
+        <div class="producto-bottom">
+  <div id="control-${nombre.replace(/\s/g,'')}">
+    <button class="boton" onclick="agregar('${nombre}', ${precio})">
+      Agregar
+    </button>
+  </div>
+</div>
         `;
       }
     });
