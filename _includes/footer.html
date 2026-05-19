@@ -1,1 +1,32 @@
+<footer style="text-align:center; padding:40px 20px;">
 
+  <!-- REDES DINÁMICAS -->
+  <div style="margin-bottom:20px;">
+    {% if site.footer.links %}
+      {% for link in site.footer.links %}
+        <a href="{{ link.url }}" style="margin:0 12px; text-decoration:none; color:#6b4f3b;" target="_blank">
+          <i class="{{ link.icon }}"></i> {{ link.label }}
+        </a>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <!-- DIVISOR ELEGANTE -->
+  <div style="width:60px; height:2px; background-color:#c8a96a; margin:20px auto;"></div>
+
+  <!-- SLOGAN -->
+  <p style="color:#c8a96a; font-weight:600; font-size:18px; margin:10px 0;">
+    Estas en buenas manos
+  </p>
+
+  <!-- COPYRIGHT -->
+  <p style="color:#6b4f3b; margin:5px 0;">
+    © 2026 Servicios de Bienvenida
+  </p>
+
+  <!-- LEGAL -->
+  <p style="color:#a89c8f; font-size:12px; margin:5px 0;">
+    Todos los derechos reservados
+  </p>
+
+</footer>
