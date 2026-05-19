@@ -6,19 +6,19 @@ author_profile: true
 ---
 <div style="max-width: 900px; margin: auto; padding-left: 8%; padding-right: 8%; text-align: justify;">
 
-En sus marcas, listos, al aire…
+<p>En sus marcas, listos, al aire…</p>
 
-Ya estábamos listos. Pero no teníamos idea de nada de cómo se opera una propiedad en rentas cortas. Y ahora… ¿Quién podrá ayudarnos?
+<p>Ya estábamos listos. Pero no teníamos idea de nada de cómo se opera una propiedad en rentas cortas. Y ahora… ¿Quién podrá ayudarnos?</p>
 
-Como una bendición nos aliamos a una pareja de jóvenes que ya estaban experimentando con una propiedad en una plataforma. Ya tenían alguna idea de cómo se hacen las cosas. Pero no lo sabían todo. Considero que fuimos un excelente equipo en el que cada uno aportaba su conocimiento. En equipo resolvíamos las situaciones… hasta que ya no.
+<p>Como una bendición nos aliamos a una pareja de jóvenes que ya estaban experimentando con una propiedad en una plataforma. Ya tenían alguna idea de cómo se hacen las cosas. Pero no lo sabían todo. Considero que fuimos un excelente equipo en el que cada uno aportaba su conocimiento. En equipo resolvíamos las situaciones… hasta que ya no.</p>
 
-Cambiaron las reglas del juego. Nunca previmos el tema de la carga fiscal y nunca delimitamos el tiempo que debían dedicarle a nuestras propiedades, que ya eran 2 para ese entonces. Empezamos a exigir aspectos que para nosotros, y nuestra experiencia como usuarios, eran importantes: la velocidad de respuesta, el cuidado obsesivo a la limpieza, las expresiones que se usan para comunicarnos con el huésped, la exclusividad en las fotografías, la atención a la cantidad de personas y los cobros correspondientes.
+<p>Cambiaron las reglas del juego. Nunca previmos el tema de la carga fiscal y nunca delimitamos el tiempo que debían dedicarle a nuestras propiedades, que ya eran 2 para ese entonces. Empezamos a exigir aspectos que para nosotros, y nuestra experiencia como usuarios, eran importantes: la velocidad de respuesta, el cuidado obsesivo a la limpieza, las expresiones que se usan para comunicarnos con el huésped, la exclusividad en las fotografías, la atención a la cantidad de personas y los cobros correspondientes.</p>
 
-Pero le hicimos ganas… hasta que entró otro factor a la mezcla. La crisis económica del 2025. No nos quedó de otra. Tuvimos que independizarnos. Ya no podíamos pagar y repartir nuestro ingreso. Tuvimos meses muy malos. Lo pensamos mucho. Pataleábamos y platicábamos… pero no lográbamos levantar la ocupación. Así que no hubo más remedio.
+<p>Pero le hicimos ganas… hasta que entró otro factor a la mezcla. La crisis económica del 2025. No nos quedó de otra. Tuvimos que independizarnos. Ya no podíamos pagar y repartir nuestro ingreso. Tuvimos meses muy malos. Lo pensamos mucho. Pataleábamos y platicábamos… pero no lográbamos levantar la ocupación. Así que no hubo más remedio.</p>
 
-Vamos a ver qué nos depara el futuro. Tenemos nervios, ilusión y miedo. No sabemos si estamos listos. Ya sabemos bastante. Estamos por averiguar si es suficiente.
+<p>Vamos a ver qué nos depara el futuro. Tenemos nervios, ilusión y miedo. No sabemos si estamos listos. Ya sabemos bastante. Estamos por averiguar si es suficiente.</p>
 
-Gracias por leerme. Sigue pendiente.
+<p>Gracias por leerme. Sigue pendiente.</p>
 
 
 </div>
