@@ -10,5 +10,6 @@ Puedes contactarnos por cualquiera de nuestras redes sociales o escribirnos dire
 📧 Correo: info@serviciosdebienvenida.com  
 📱 WhatsApp: [Haz clic aquí](https://wa.me/50240648733)
 📷 Instagram: [@serviciosdebienvenida](https://www.instagram.com/serviciosdebienvenida.gt/) 
+👍 Facebook: [Servicios de Bienvenida](https://www.facebook.com/profile.php?id=61577256517959)
 
 📍 Ciudad de Guatemala
