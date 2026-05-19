@@ -148,6 +148,23 @@ body.layout--single.page-catalogo .page__content {
     padding-right: 15px;
   }
 }
+/* 🔥 FIX TOTAL CATÁLOGO */
+body.page-catalogo .page {
+  max-width: 1400px !important;
+  margin: auto;
+}
+
+/* Asegura espacio real */
+.page-catalogo .contenedor-tienda {
+  grid-template-columns: 1fr 320px !important;
+}
+
+/* 🔥 FUERZA 3 COLUMNAS */
+.page-catalogo #productos {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px;
+}
 </style>
 
 <script>
