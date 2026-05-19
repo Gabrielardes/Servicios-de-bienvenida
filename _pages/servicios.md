@@ -107,6 +107,6 @@ Supervisamos y coordinamos mantenimientos generales: plomería, electricidad, pi
 ## Contáctanos
 
 - ✉️ Correo: [serviciosdebienvenidagt@gmail.com](mailto:serviciosdebienvenidagt@gmail.com)  
-- 📞 WhatsApp: [https://wa.me/50240339081](https://wa.me/50240339081)  
-- 📷 Instagram: [@serviciosdebienvenida](https://www.instagram.com/serviciosdebienvenida)  
+- 📞 WhatsApp: [https://wa.me/50240339081](https://wa.me/50240648733)  
+- 📷 Instagram: [@serviciosdebienvenida](https://www.instagram.com/serviciosdebienvenida.gt/)  
 - 👍 Facebook: [Servicios de Bienvenida](https://www.facebook.com/profile.php?id=61577256517959)
