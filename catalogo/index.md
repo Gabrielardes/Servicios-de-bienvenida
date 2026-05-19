@@ -136,6 +136,10 @@ body.layout--single.page-catalogo .page {
 body.layout--single.page-catalogo .page__content {
   max-width: 100% !important;
 }
+/* 🔥 FIX COLUMNAS PRODUCTOS */
+.page-catalogo #productos {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+}
 
 /* MOBILE */
 @media (max-width: 900px) {
