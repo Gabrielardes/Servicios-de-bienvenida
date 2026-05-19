@@ -1,4 +1,3 @@
-<div style="margin-left:8%; margin-right:8%; text-align:justify;">
 ---
 title: "En sus marcas, listos, al aire..."
 date: 2026-05-19
@@ -21,4 +20,4 @@ Vamos a ver qué nos depara el futuro. Tenemos nervios, ilusión y miedo. No sab
 Gracias por leerme. Sigue pendiente.
 
 
-</div>
+
