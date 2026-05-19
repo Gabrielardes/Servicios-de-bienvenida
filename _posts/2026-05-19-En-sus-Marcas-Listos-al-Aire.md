@@ -4,6 +4,7 @@ date: 2026-05-19
 categories: [Blog]
 author_profile: true
 ---
+<div style="max-width: 900px; margin: auto; padding-left: 8%; padding-right: 8%; text-align: justify;">
 
 En sus marcas, listos, al aire…
 
@@ -20,4 +21,4 @@ Vamos a ver qué nos depara el futuro. Tenemos nervios, ilusión y miedo. No sab
 Gracias por leerme. Sigue pendiente.
 
 
-
+</div>
