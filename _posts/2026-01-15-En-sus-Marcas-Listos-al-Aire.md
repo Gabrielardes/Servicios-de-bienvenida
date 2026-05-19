@@ -1,6 +1,6 @@
 ---
 title: "En sus marcas, listos, al aire..."
-date: 2026-05-19
+date: 2026-01-15
 categories: [Blog]
 author_profile: true
 ---
