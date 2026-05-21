@@ -180,6 +180,22 @@ classes: page-catalogo
     overflow-y: auto;
 
     border-radius: 12px 12px 0 0;
+    padding-bottom: 15px;
+  }
+
+  /* 👇 ESTE ES EL FIX CLAVE */
+  body {
+    padding-bottom: 45vh;
+  }
+}
+
+    background: white;
+    border-top: 2px solid #eee;
+
+    max-height: 40vh;
+    overflow-y: auto;
+
+    border-radius: 12px 12px 0 0;
   }
 }
   /* SOLO CATÁLOGO - MÁS ANCHO */
