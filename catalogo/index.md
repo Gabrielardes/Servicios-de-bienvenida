@@ -422,4 +422,59 @@ function filtrar(cat) {
   });
 }
 
+  <script>
+
+// ... todas tus funciones actuales ...
+
+function filtrar(cat) {
+  let productos = document.querySelectorAll('.producto');
+
+  productos.forEach(p => {
+    if (cat === 'todos' || p.dataset.categoria === cat) {
+      p.style.display = 'block';
+    } else {
+      p.style.display = 'none';
+    }
+  });
+}
+
+
+// 👇👇👇 AQUÍ PEGAS LA NUEVA FUNCIÓN 👇👇👇
+
+function descargarCatalogo(){
+  const nombre = document.getElementById("nombreDescarga").value.trim();
+  const telefono = document.getElementById("telefonoDescarga").value.trim();
+
+  if(!nombre || !telefono){
+    alert("Por favor completa tu nombre y WhatsApp");
+    return;
+  }
+
+  const telefonoLimpio = telefono.replace(/\D/g, "");
+  if(telefonoLimpio.length < 8){
+    alert("Ingresa un número válido");
+    return;
+  }
+
+  fetch("https://script.google.com/macros/s/AKfycbw3xO7W-3dJ0YgGvOUkL46nCTB5OMyfO5wkMONmEPiZChq-r3bx9kVFywTx9yxrklh9/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      nombre: nombre,
+      telefono: telefonoLimpio,
+      tipo: "descarga_catalogo"
+    })
+  });
+
+  window.open("/assets/catalogo.pdf", "_blank");
+
+  cerrarModal();
+
+  alert("Catálogo descargado ✅");
+}
+
+</script>
 </script>
