@@ -166,12 +166,19 @@ classes: page-catalogo
     order: 1;
   }
 
-  #carrito {
+ #carrito {
     order: 2;
-    position: static;        /* ← quita el fixed que causaba el problema */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: white;
     border-top: 2px solid #eee;
-    border-radius: 12px;
-    margin-top: 20px;
+    border-radius: 12px 12px 0 0;
+    max-height: 40vh;
+    overflow-y: auto;
+    padding: 15px;
     padding-bottom: 20px;
   }
 
