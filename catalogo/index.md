@@ -76,7 +76,7 @@ classes: page-catalogo
 /* PRODUCTOS SCROLL */
 #productos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
   width: 100%;
 }
@@ -212,8 +212,8 @@ body.layout--single.page-catalogo .page__content {
 /* ✅ GRID RESPONSIVE FINAL (LA BUENA) */
 .page-catalogo #productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
 }
 
 /* MOBILE */
