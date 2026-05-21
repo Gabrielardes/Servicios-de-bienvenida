@@ -4,13 +4,8 @@ date: 2025-06-28
 categories: [Blog]
 author_profile: true
 ---
-<style>
-p {
-  text-align: justify;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-</style>
+<div style="max-width: 900px; margin: auto; padding-left: 8%; padding-right: 8%; text-align: justify;">
+
 
 ¡Hola!  
 Quiero contarte que nos metimos en el mundo del Airbnb por necesidad. Empezamos con la ilusión de rentar a largo plazo una propiedad. Conforme fue pasando el tiempo las cosas se complicaban. No lográbamos ponernos de acuerdo con los candidatos. Así que decidimos tirarnos al agua en el mundo de las rentas cortas.
