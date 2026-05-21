@@ -112,17 +112,32 @@ classes: page-catalogo
 }
 
 @media (max-width: 900px) {
+
+  /* Productos ocupan todo */
   .contenedor-tienda {
     grid-template-columns: 1fr;
   }
 
+  /* Grid productos normal responsive */
   #productos {
-    grid-template-columns: 1fr; /* 👈 1 columna en celular */
-    max-height: none;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 
+  /* 🔥 CARRITO FIJO ABAJO */
   #carrito {
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
+    background: white;
+    border-top: 2px solid #eee;
+
+    max-height: 40vh;
+    overflow-y: auto;
+
+    border-radius: 12px 12px 0 0;
   }
 }
   /* SOLO CATÁLOGO - MÁS ANCHO */
