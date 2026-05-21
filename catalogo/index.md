@@ -155,72 +155,28 @@ classes: page-catalogo
 
 @media (max-width: 900px) {
 
-  /* Productos ocupan todo */
   .contenedor-tienda {
     grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Grid productos normal responsive */
   #productos {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    order: 1;
   }
 
-  /* 🔥 CARRITO FIJO ABAJO */
   #carrito {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-
-    background: white;
+    order: 2;
+    position: static;        /* ← quita el fixed que causaba el problema */
     border-top: 2px solid #eee;
-
-    max-height: 40vh;
-    overflow-y: auto;
-
-    border-radius: 12px 12px 0 0;
-    padding-bottom: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    padding-bottom: 20px;
   }
 
-  /* 👇 ESTE ES EL FIX CLAVE */
   body {
-    padding-bottom: 45vh;
-  }
-}
-
-    background: white;
-    border-top: 2px solid #eee;
-
-    max-height: 40vh;
-    overflow-y: auto;
-
-    border-radius: 12px 12px 0 0;
-  }
-}
-  /* SOLO CATÁLOGO - MÁS ANCHO */
-body.layout--single.page-catalogo .page {
-  max-width: 100% !important;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-/* Evita que el contenido interno se limite */
-body.layout--single.page-catalogo .page__content {
-  max-width: 100% !important;
-}
-/* ✅ GRID RESPONSIVE FINAL (LA BUENA) */
-.page-catalogo #productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-  body.layout--single.page-catalogo .page {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-bottom: 0;       /* ← ya no necesitas el padding extra */
   }
 }
 /* 🔥 FIX TOTAL CATÁLOGO */
@@ -231,7 +187,7 @@ body.page-catalogo .page {
 
 /* Asegura espacio real */
 .page-catalogo .contenedor-tienda {
-  grid-template-columns: 1fr 320px !important;
+  grid-template-columns: 1fr 1fr 320px !important;
 }
 
 </style>
