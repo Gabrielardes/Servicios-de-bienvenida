@@ -194,7 +194,7 @@ body.page-catalogo .page {
 
 /* Asegura espacio real */
 .page-catalogo .contenedor-tienda {
-  grid-template-columns: 1fr 1fr 320px !important;
+  grid-template-columns: 1fr 320px !important;
 }
 
 </style>
