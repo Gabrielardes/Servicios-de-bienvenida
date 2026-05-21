@@ -553,8 +553,13 @@ document.addEventListener("DOMContentLoaded", function(){
   const confirmar = document.getElementById("confirmarDescarga");
 
   btn.addEventListener("click", () => {
-    modal.style.display = "flex";
-  });
+
+  // 🧹 LIMPIAR CAMPOS
+  document.getElementById("nombreDescarga").value = "";
+  document.getElementById("telefonoDescarga").value = "";
+
+  modal.style.display = "flex";
+});
 
   cerrar.addEventListener("click", () => {
     modal.style.display = "none";
