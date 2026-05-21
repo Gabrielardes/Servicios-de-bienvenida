@@ -8,7 +8,7 @@ classes: page-catalogo
 <h2>Insumos Imprescindibles</h2>
 <div style="text-align:center; margin:20px 0;">
   <button onclick="abrirModal()" class="boton">
-    📥 Descargar Catálogo
+    Descargar Catálogo
   </button>
 </div>
 <!-- FILTROS -->
