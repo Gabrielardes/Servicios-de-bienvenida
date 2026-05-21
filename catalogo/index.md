@@ -46,39 +46,6 @@ classes: page-catalogo
       Cancelar
     </button>
   </div>
-</div> id="modalCatalogo" style="
-  display:none;
-  position:fixed;
-  top:0; left:0; right:0; bottom:0;
-  background:rgba(0,0,0,0.6);
-  z-index:1000;
-  justify-content:center;
-  align-items:center;
-">
-
-  <div style="
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    width:90%;
-    max-width:400px;
-    text-align:center;
-  ">
-    <h3>Descargar Catálogo</h3>
-
-    <input id="nombreDescarga" placeholder="Tu nombre" style="width:100%; margin:10px 0; padding:10px;">
-    <input id="telefonoDescarga" placeholder="WhatsApp" style="width:100%; margin:10px 0; padding:10px;">
-
-    <button onclick="descargarCatalogo()" class="boton">
-      Descargar
-    </button>
-
-    <br><br>
-
-    <button onclick="cerrarModal()" style="background:none; border:none; color:#999;">
-      Cancelar
-    </button>
-  </div>
 
 </div>
 </div>
@@ -544,6 +511,9 @@ function descargarCatalogo(){
   cerrarModal();
 
   alert("Catálogo descargado ✅");
+}
+function cerrarModal(){
+  document.getElementById("modalCatalogo").style.display = "none";
 }
 document.addEventListener("DOMContentLoaded", function(){
 
