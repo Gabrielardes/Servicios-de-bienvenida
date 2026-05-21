@@ -6,7 +6,11 @@ classes: page-catalogo
 ---
 
 <h2>Insumos Imprescindibles</h2>
-
+<div style="text-align:center; margin:20px 0;">
+  <button onclick="abrirModal()" class="boton">
+    📥 Descargar Catálogo
+  </button>
+</div>
 <!-- FILTROS -->
 <div style="text-align:center; margin:20px 0;">
   <button class="filtro" onclick="filtrar('todos')">Todos</button>
