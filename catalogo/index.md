@@ -136,9 +136,11 @@ body.layout--single.page-catalogo .page {
 body.layout--single.page-catalogo .page__content {
   max-width: 100% !important;
 }
-/* 🔥 FIX COLUMNAS PRODUCTOS */
+/* ✅ GRID RESPONSIVE FINAL (LA BUENA) */
 .page-catalogo #productos {
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 /* MOBILE */
@@ -159,12 +161,6 @@ body.page-catalogo .page {
   grid-template-columns: 1fr 320px !important;
 }
 
-/* 🔥 FUERZA 3 COLUMNAS */
-.page-catalogo #productos {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 20px;
-}
 </style>
 
 <script>
