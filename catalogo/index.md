@@ -422,7 +422,6 @@ function filtrar(cat) {
   });
 }
 
-  <script>
 
 // ... todas tus funciones actuales ...
 
@@ -476,5 +475,4 @@ function descargarCatalogo(){
   alert("Catálogo descargado ✅");
 }
 
-</script>
 </script>
